@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 1.1 Question Mining"
+  short_description: "Evidence-grounded research gap and question mining."
+  default_prompt: "Use $nnscholar1-1-question-mining to identify research gaps in my topic and turn the strongest gap into searchable research questions."
+policy:
+  allow_implicit_invocation: true

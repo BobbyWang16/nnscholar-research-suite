@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 1.2 Literature Searching"
+  short_description: "Interactive multidisciplinary literature search and evidence tables."
+  default_prompt: "Use $nnscholar1-2-literature-searching to run a standard search for my research question, including databases, search strings, screening rules, core paper table, evidence summary, and limitations."
+policy:
+  allow_implicit_invocation: true

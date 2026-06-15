@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 2.1 Research Planning"
+  short_description: "Executable multidisciplinary research plans with milestones and risks."
+  default_prompt: "Use $nnscholar2-1-research-planning to create a 12-week executable research plan with tasks, milestones, resources, risks, and revision checkpoints."
+policy:
+  allow_implicit_invocation: true

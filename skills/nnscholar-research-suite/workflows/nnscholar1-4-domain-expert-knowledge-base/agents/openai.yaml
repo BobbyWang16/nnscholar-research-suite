@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 1.4 Domain Expert KB"
+  short_description: "Build a reusable citation-grounded domain expert knowledge base."
+  default_prompt: "Use $nnscholar1-4-domain-expert-knowledge-base to convert my question mining, literature search, and hypothesis outputs into a reusable domain expert knowledge base."
+policy:
+  allow_implicit_invocation: true

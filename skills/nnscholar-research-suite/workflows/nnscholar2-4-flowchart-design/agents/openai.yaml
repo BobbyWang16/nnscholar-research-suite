@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 2.4 Flowchart Design"
+  short_description: "Detailed research flowcharts and Mermaid diagrams."
+  default_prompt: "Use $nnscholar2-4-flowchart-design to turn this research plan into a clean Figure 1 Mermaid flowchart with caption and revision notes."
+policy:
+  allow_implicit_invocation: true

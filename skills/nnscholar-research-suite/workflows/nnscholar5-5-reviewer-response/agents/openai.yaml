@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 5.5 Reviewer Response"
+  short_description: "Classify reviewer comments and draft English point-by-point replies."
+  default_prompt: "Use $nnscholar5-5-reviewer-response to classify reviewer comments, plan manuscript changes, and draft an English point-by-point response with tone and risk audit."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 4.1 Data Figure"
+  short_description: "Publication figures from structured multidisciplinary data."
+  default_prompt: "Use $nnscholar4-1-data-figure to choose the right chart type for my structured data and generate reproducible plotting code, English figure title, legend, and interpretation."
+policy:
+  allow_implicit_invocation: true

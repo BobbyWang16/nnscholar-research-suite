@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 5.2 Submission Finalization"
+  short_description: "Finalize manuscripts against venue requirements."
+  default_prompt: "Use $nnscholar5-2-submission-finalization to finalize my submission package against the target venue requirements, including formatting, statements, figures, tables, and file manifest."
+policy:
+  allow_implicit_invocation: true

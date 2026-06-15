@@ -1,0 +1,38 @@
+{
+  "name": "nnscholar-research-suite",
+  "adapter_version": "0.3.0",
+  "generated_for": "codex",
+  "packaging": {
+    "type": "single_codex_suite_skill",
+    "entrypoint": "skills/nnscholar-research-suite/SKILL.md",
+    "workflow_root": "skills/nnscholar-research-suite/workflows"
+  },
+  "workflows": [
+    "nnscholar1-1-question-mining",
+    "nnscholar1-2-literature-searching",
+    "nnscholar1-3-hypothesis-generation",
+    "nnscholar1-4-domain-expert-knowledge-base",
+    "nnscholar2-1-research-planning",
+    "nnscholar2-2-ars-plan",
+    "nnscholar2-3-paper-architecture",
+    "nnscholar2-4-flowchart-design",
+    "nnscholar3-1-experiment-validation-plan",
+    "nnscholar4-1-data-figure",
+    "nnscholar4-2-image-schematic",
+    "nnscholar4-3-figure-assembly",
+    "nnscholar4-4-table-formatting",
+    "nnscholar4-5-manuscript-drafting",
+    "nnscholar4-6-manuscript-polishing",
+    "nnscholar5-1-journal-conference-recommendation",
+    "nnscholar5-2-submission-finalization",
+    "nnscholar5-3-submission-portal-workflow",
+    "nnscholar5-4-cover-letter",
+    "nnscholar5-5-reviewer-response"
+  ],
+  "runtime_notes": [
+    "Codex registers only the root nnscholar-research-suite skill.",
+    "Legacy /nnscholar* aliases are handled by the root SKILL.md router.",
+    "Desktop workflow buttons remain UI presets and send structured workflow payloads to the suite.",
+    "Internal workflow entry files are named WORKFLOW.md so they are not exposed as separate Codex skills."
+  ]
+}

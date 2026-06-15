@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 5.4 Cover Letter"
+  short_description: "Draft and revise English submission cover letters."
+  default_prompt: "Use $nnscholar5-4-cover-letter to write an English cover letter, short submission note, editorial pitch, declaration checklist, and revision suggestions."
+policy:
+  allow_implicit_invocation: true

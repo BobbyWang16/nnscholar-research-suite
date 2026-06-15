@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 4.2 Image Schematic"
+  short_description: "Scientific schematics and graphical abstracts with image generation prompts."
+  default_prompt: "Use $nnscholar4-2-image-schematic to create a scientific schematic blueprint, Image2 prompt, English figure title and legend, element list, and revision suggestions."
+policy:
+  allow_implicit_invocation: true

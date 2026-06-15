@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 2.2 ARS Plan"
+  short_description: "Upstream-aware Aim-Route-Specification research scheme."
+  default_prompt: "Use $nnscholar2-2-ars-plan to design and lock the Aim, Route, Specification, evidence boundary, and protocol lock conditions for this project."
+policy:
+  allow_implicit_invocation: true

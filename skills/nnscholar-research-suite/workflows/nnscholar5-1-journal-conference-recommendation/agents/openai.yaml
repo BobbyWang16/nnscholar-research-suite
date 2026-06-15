@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 5.1 Venue Recommendation"
+  short_description: "Recommend journals or conferences with revision strategy."
+  default_prompt: "Use $nnscholar5-1-journal-conference-recommendation to recommend ambitious, balanced, and safe journals or conferences with fit analysis, risks, and revision priorities."
+policy:
+  allow_implicit_invocation: true

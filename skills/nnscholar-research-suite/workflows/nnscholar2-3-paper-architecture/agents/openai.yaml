@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 2.3 Paper Architecture"
+  short_description: "Multidisciplinary paper architecture and figure/table blueprint."
+  default_prompt: "Use $nnscholar2-3-paper-architecture to build the manuscript structure, storyline, result order, figure/table blueprint, claim boundaries, and reviewer risks."
+policy:
+  allow_implicit_invocation: true

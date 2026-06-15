@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 4.4 Table Formatting"
+  short_description: "Manuscript table formatting and Word-ready three-line tables."
+  default_prompt: "Use $nnscholar4-4-table-formatting to convert my data or table into a manuscript-ready table with English title, notes, abbreviations, statistical footnotes, and Word export plan."
+policy:
+  allow_implicit_invocation: true

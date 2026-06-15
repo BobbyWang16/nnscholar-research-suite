@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 4.3 Figure Assembly"
+  short_description: "Multi-panel scientific figure assembly from existing panels."
+  default_prompt: "Use $nnscholar4-3-figure-assembly to assemble my panels into a publication-ready multi-panel figure with labels, layout manifest, exports, and English legend."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 1.3 Hypothesis Generation"
+  short_description: "Evidence-linked hypothesis generation and falsifiability checks."
+  default_prompt: "Use $nnscholar1-3-hypothesis-generation to generate, challenge, and refine a testable research hypothesis from the literature evidence and research gap."
+policy:
+  allow_implicit_invocation: true
