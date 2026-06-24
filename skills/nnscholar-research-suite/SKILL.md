@@ -66,10 +66,13 @@ user's Zotero library. Use those cards as inspiration and source pointers, not
 as copied figures, captions, tables, or article text.
 
 For visual figure-layout cues, the atlas also points to the CC BY screenshot
-manifest at `assets/zotero-figure-examples/manifest.json` and selected JPG
-reference crops under `assets/zotero-figure-examples/`. Inspect only the
-matching assets needed for the current figure task, then generate original
-panels and captions with source/license attribution preserved in the handoff.
+gallery at `references/figure-screenshot-gallery.md`, the asset manifest at
+`assets/zotero-figure-examples/manifest.json`, and selected JPG reference crops
+under `assets/zotero-figure-examples/`. These images are bundled with the skill
+for portable use on other computers; Zotero keys are provenance labels only.
+Inspect only the matching assets needed for the current figure task, then
+generate original panels and captions with source/license attribution preserved
+in the handoff.
 
 ## Workflow Router
 

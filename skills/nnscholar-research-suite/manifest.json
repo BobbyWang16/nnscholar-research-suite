@@ -36,6 +36,7 @@
     "Internal workflow entry files are named WORKFLOW.md so they are not exposed as separate Codex skills.",
     "The root references/companion-skill-bridge.md maps NNScholar stages to co-installed specialist skills such as radiology, biomedical evidence, Nature-style writing, and file-format skills.",
     "The root references/zotero-example-atlas.md provides copyright-safe top-journal structural example cards derived from the user's Zotero library.",
-    "The assets/zotero-figure-examples/manifest.json file indexes reusable CC BY figure screenshot references for figure-layout inspiration."
+    "The references/figure-screenshot-gallery.md file directly embeds portable CC BY figure screenshot references bundled with this skill.",
+    "The assets/zotero-figure-examples/manifest.json file indexes the bundled screenshot assets for automation; Zotero keys are provenance labels only."
   ]
 }

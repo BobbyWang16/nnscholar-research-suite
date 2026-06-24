@@ -1,146 +1,134 @@
 [
   {
     "id": "figref-01-radimagenet-workflow",
-    "key": "MEHDNDLE",
-    "att": "VGVWU96V",
-    "page": 3,
+    "source_key": "S04",
+    "zotero_key": "MEHDNDLE",
     "figure": "Figure 1",
     "pattern": "dataset curation + pretraining + transfer-learning workflow",
     "license": "CC BY 4.0",
     "doi": "10.1148/ryai.210315",
-    "file": "assets/zotero-figure-examples/figref-01-radimagenet-workflow.jpg",
-    "source_pdf_attachment": "VGVWU96V"
+    "bundled_file": "assets/zotero-figure-examples/figref-01-radimagenet-workflow.jpg",
+    "portable": true
   },
   {
     "id": "figref-02-radimagenet-performance",
-    "key": "MEHDNDLE",
-    "att": "VGVWU96V",
-    "page": 5,
+    "source_key": "S04",
+    "zotero_key": "MEHDNDLE",
     "figure": "Figure 3",
     "pattern": "small-dataset performance comparison with uncertainty",
     "license": "CC BY 4.0",
     "doi": "10.1148/ryai.210315",
-    "file": "assets/zotero-figure-examples/figref-02-radimagenet-performance.jpg",
-    "source_pdf_attachment": "VGVWU96V"
+    "bundled_file": "assets/zotero-figure-examples/figref-02-radimagenet-performance.jpg",
+    "portable": true
   },
   {
     "id": "figref-03-tme-study-design",
-    "key": "BJJT2VUD",
-    "att": "PNH76IZL",
-    "page": 3,
+    "source_key": "S13",
+    "zotero_key": "BJJT2VUD",
     "figure": "Figure 1",
     "pattern": "study design with cohorts, CT/IHC linkage, and model validation",
     "license": "CC BY 4.0",
     "doi": "10.1016/j.xcrm.2023.101146",
-    "file": "assets/zotero-figure-examples/figref-03-tme-study-design.jpg",
-    "source_pdf_attachment": "PNH76IZL"
+    "bundled_file": "assets/zotero-figure-examples/figref-03-tme-study-design.jpg",
+    "portable": true
   },
   {
     "id": "figref-04-tme-model-performance",
-    "key": "BJJT2VUD",
-    "att": "PNH76IZL",
-    "page": 4,
+    "source_key": "S13",
+    "zotero_key": "BJJT2VUD",
     "figure": "Figure 2",
     "pattern": "ROC/distribution/confusion-matrix performance panel",
     "license": "CC BY 4.0",
     "doi": "10.1016/j.xcrm.2023.101146",
-    "file": "assets/zotero-figure-examples/figref-04-tme-model-performance.jpg",
-    "source_pdf_attachment": "PNH76IZL"
+    "bundled_file": "assets/zotero-figure-examples/figref-04-tme-model-performance.jpg",
+    "portable": true
   },
   {
     "id": "figref-05-mr-deltanet-design",
-    "key": "VH3RG3I7",
-    "att": "2NLV9LIS",
-    "page": 3,
+    "source_key": "S15",
+    "zotero_key": "VH3RG3I7",
     "figure": "Figure 1",
     "pattern": "longitudinal MRI study design and biological interpretation route",
     "license": "CC BY 4.0",
     "doi": "10.1002/advs.202517721",
-    "file": "assets/zotero-figure-examples/figref-05-mr-deltanet-design.jpg",
-    "source_pdf_attachment": "2NLV9LIS"
+    "bundled_file": "assets/zotero-figure-examples/figref-05-mr-deltanet-design.jpg",
+    "portable": true
   },
   {
     "id": "figref-06-mr-deltanet-performance",
-    "key": "VH3RG3I7",
-    "att": "2NLV9LIS",
-    "page": 5,
+    "source_key": "S15",
+    "zotero_key": "VH3RG3I7",
     "figure": "Figure 3",
     "pattern": "multi-cohort ROC and score-distribution validation",
     "license": "CC BY 4.0",
     "doi": "10.1002/advs.202517721",
-    "file": "assets/zotero-figure-examples/figref-06-mr-deltanet-performance.jpg",
-    "source_pdf_attachment": "2NLV9LIS"
+    "bundled_file": "assets/zotero-figure-examples/figref-06-mr-deltanet-performance.jpg",
+    "portable": true
   },
   {
     "id": "figref-07-flare-overall-design",
-    "key": "VM9UW7QT",
-    "att": "B3FM8L28",
-    "page": 4,
+    "source_key": "S16",
+    "zotero_key": "VM9UW7QT",
     "figure": "Figure 1",
     "pattern": "multimodal missing-modality foundation-model design",
     "license": "CC BY 4.0",
     "doi": "10.1002/advs.202510931",
-    "file": "assets/zotero-figure-examples/figref-07-flare-overall-design.jpg",
-    "source_pdf_attachment": "B3FM8L28"
+    "bundled_file": "assets/zotero-figure-examples/figref-07-flare-overall-design.jpg",
+    "portable": true
   },
   {
     "id": "figref-08-flare-framework",
-    "key": "VM9UW7QT",
-    "att": "B3FM8L28",
-    "page": 6,
+    "source_key": "S16",
+    "zotero_key": "VM9UW7QT",
     "figure": "Figure 3",
     "pattern": "multi-branch model framework with modality-specific encoders",
     "license": "CC BY 4.0",
     "doi": "10.1002/advs.202510931",
-    "file": "assets/zotero-figure-examples/figref-08-flare-framework.jpg",
-    "source_pdf_attachment": "B3FM8L28"
+    "bundled_file": "assets/zotero-figure-examples/figref-08-flare-framework.jpg",
+    "portable": true
   },
   {
     "id": "figref-09-crcfound-overview",
-    "key": "5FWICZ2D",
-    "att": "6TI65SEK",
-    "page": 3,
+    "source_key": "S17",
+    "zotero_key": "5FWICZ2D",
     "figure": "Figure 1",
     "pattern": "3D CT foundation-model pretraining and downstream tasks",
     "license": "CC BY 4.0",
     "doi": "10.1002/advs.202407339",
-    "file": "assets/zotero-figure-examples/figref-09-crcfound-overview.jpg",
-    "source_pdf_attachment": "6TI65SEK"
+    "bundled_file": "assets/zotero-figure-examples/figref-09-crcfound-overview.jpg",
+    "portable": true
   },
   {
     "id": "figref-10-crcfound-performance",
-    "key": "5FWICZ2D",
-    "att": "6TI65SEK",
-    "page": 5,
+    "source_key": "S17",
+    "zotero_key": "5FWICZ2D",
     "figure": "Figure 2",
     "pattern": "cross-validation performance bars plus ROC comparison",
     "license": "CC BY 4.0",
     "doi": "10.1002/advs.202407339",
-    "file": "assets/zotero-figure-examples/figref-10-crcfound-performance.jpg",
-    "source_pdf_attachment": "6TI65SEK"
+    "bundled_file": "assets/zotero-figure-examples/figref-10-crcfound-performance.jpg",
+    "portable": true
   },
   {
     "id": "figref-11-lung-pathology-subtyping",
-    "key": "3H2VPXX7",
-    "att": "ULK2FAG3",
-    "page": 9,
+    "source_key": "S26",
+    "zotero_key": "3H2VPXX7",
     "figure": "Figure 4",
     "pattern": "diagnostic downstream algorithm development and validation",
     "license": "CC BY 4.0",
     "doi": "10.1016/j.xcrm.2024.101697",
-    "file": "assets/zotero-figure-examples/figref-11-lung-pathology-subtyping.jpg",
-    "source_pdf_attachment": "ULK2FAG3"
+    "bundled_file": "assets/zotero-figure-examples/figref-11-lung-pathology-subtyping.jpg",
+    "portable": true
   },
   {
     "id": "figref-12-lung-pathology-prognostic",
-    "key": "3H2VPXX7",
-    "att": "ULK2FAG3",
-    "page": 14,
+    "source_key": "S26",
+    "zotero_key": "3H2VPXX7",
     "figure": "Figure 6",
     "pattern": "AI-derived prognostic parameter quantification and visual examples",
     "license": "CC BY 4.0",
     "doi": "10.1016/j.xcrm.2024.101697",
-    "file": "assets/zotero-figure-examples/figref-12-lung-pathology-prognostic.jpg",
-    "source_pdf_attachment": "ULK2FAG3"
+    "bundled_file": "assets/zotero-figure-examples/figref-12-lung-pathology-prognostic.jpg",
+    "portable": true
   }
 ]

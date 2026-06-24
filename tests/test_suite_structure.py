@@ -10,6 +10,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 SUITE_ROOT = REPO_ROOT / "skills" / "nnscholar-research-suite"
 WORKFLOWS_ROOT = SUITE_ROOT / "workflows"
 ATLAS_PATH = SUITE_ROOT / "references" / "zotero-example-atlas.md"
+FIGURE_GALLERY_PATH = SUITE_ROOT / "references" / "figure-screenshot-gallery.md"
 FIGURE_ASSET_ROOT = SUITE_ROOT / "assets" / "zotero-figure-examples"
 FIGURE_ASSET_MANIFEST = FIGURE_ASSET_ROOT / "manifest.json"
 
@@ -131,6 +132,7 @@ class SuiteStructureTest(unittest.TestCase):
     def test_zotero_atlas_example_coverage(self) -> None:
         self.assertTrue(ATLAS_PATH.exists(), "missing Zotero example atlas")
         atlas_text = read_text(ATLAS_PATH)
+        self.assertIn("references/figure-screenshot-gallery.md", atlas_text)
         self.assertIn("assets/zotero-figure-examples/manifest.json", atlas_text)
 
         for workflow_id in EXPECTED_WORKFLOWS:
@@ -154,6 +156,10 @@ class SuiteStructureTest(unittest.TestCase):
         seen_ids: set[str] = set()
         suite_root = SUITE_ROOT.resolve()
         for entry in manifest:
+            self.assertNotIn("att", entry, "manifest must not require local Zotero attachment keys")
+            self.assertNotIn("source_pdf_attachment", entry, "manifest must not require local Zotero attachments")
+            self.assertTrue(entry.get("portable"), "manifest entries must be portable bundled assets")
+
             asset_id = entry.get("id")
             self.assertIsInstance(asset_id, str)
             self.assertNotIn(asset_id, seen_ids)
@@ -164,7 +170,7 @@ class SuiteStructureTest(unittest.TestCase):
             self.assertNotIn("NC", license_text, f"{asset_id} must not be non-commercial only")
             self.assertNotIn("ND", license_text, f"{asset_id} must not be no-derivatives only")
 
-            rel_file = entry.get("file")
+            rel_file = entry.get("bundled_file")
             self.assertIsInstance(rel_file, str)
             self.assertTrue(rel_file.endswith(".jpg"), f"{asset_id} must point to a JPG asset")
             asset_path = (SUITE_ROOT / rel_file).resolve()
@@ -172,9 +178,21 @@ class SuiteStructureTest(unittest.TestCase):
             self.assertTrue(asset_path.exists(), f"missing screenshot asset {rel_file}")
             self.assertGreater(asset_path.stat().st_size, 10_000, f"screenshot asset is unexpectedly small: {rel_file}")
 
-            self.assertTrue(entry.get("key"), f"{asset_id} missing Zotero key")
+            self.assertTrue(entry.get("source_key"), f"{asset_id} missing source key")
+            self.assertTrue(entry.get("zotero_key"), f"{asset_id} missing Zotero provenance key")
             self.assertTrue(entry.get("doi"), f"{asset_id} missing DOI")
             self.assertTrue(entry.get("pattern"), f"{asset_id} missing pattern")
+
+    def test_figure_gallery_embeds_bundled_images(self) -> None:
+        self.assertTrue(FIGURE_GALLERY_PATH.exists(), "missing bundled figure screenshot gallery")
+        gallery_text = read_text(FIGURE_GALLERY_PATH)
+        embeds = re.findall(r"!\[[^\]]+\]\((\.\./assets/zotero-figure-examples/[^)]+\.jpg)\)", gallery_text)
+        self.assertGreaterEqual(len(embeds), 10)
+
+        for rel_embed in embeds:
+            asset_path = (FIGURE_GALLERY_PATH.parent / rel_embed).resolve()
+            asset_path.relative_to(SUITE_ROOT.resolve())
+            self.assertTrue(asset_path.exists(), f"gallery embeds missing asset {rel_embed}")
 
 
 if __name__ == "__main__":

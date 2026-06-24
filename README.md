@@ -132,14 +132,18 @@ patterns, but they do not copy source figures, captions, tables, or long article
 text.
 
 For figure-layout inspiration, the suite also bundles 12 low-resolution CC BY
-visual reference crops and a manifest:
+visual reference crops, a Markdown gallery that directly embeds them, and a
+manifest for automation:
 
 ```text
+skills/nnscholar-research-suite/references/figure-screenshot-gallery.md
 skills/nnscholar-research-suite/assets/zotero-figure-examples/manifest.json
 ```
 
 Use these screenshots only as layout references for generating original figures,
-and preserve source/license attribution in any project handoff.
+and preserve source/license attribution in any project handoff. Zotero keys are
+kept only as provenance labels; another computer does not need the user's Zotero
+library to inspect the bundled reference images.
 
 ## Validation
 
@@ -160,7 +164,8 @@ The validator checks:
 - root skill frontmatter follows the Codex `name` + `description` convention
 - Zotero atlas coverage includes at least five examples per workflow and at
   least ten figure examples for data-figure generation
-- Zotero figure screenshot assets exist and use reusable CC BY licensing
+- Zotero figure screenshot assets are directly embedded in a portable gallery
+  and use reusable CC BY licensing
 
 ## Design Notes
 

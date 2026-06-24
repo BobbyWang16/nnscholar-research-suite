@@ -117,13 +117,15 @@ skills/nnscholar-research-suite/references/zotero-example-atlas.md
 `nnscholar4-1-data-figure` 提供 12 个图表生成示例。示例会保留 Zotero key、期刊、DOI/URL 和可模仿结构，但不会复制论文原图、caption、表格或长段原文。
 
 为了让图表生成有更具体的版式参考，本版本还附带 12 张低分辨率 CC BY
-图表示例截图和 manifest：
+图表示例截图、一个直接嵌入这些图片的 Markdown gallery，以及用于自动化校验的
+manifest：
 
 ```text
+skills/nnscholar-research-suite/references/figure-screenshot-gallery.md
 skills/nnscholar-research-suite/assets/zotero-figure-examples/manifest.json
 ```
 
-这些截图只作为生成原创图表时的布局参考使用；在 handoff 中应保留来源和许可信息。
+这些截图已经随 skill 一起保存，不依赖用户本机 Zotero；Zotero key 只作为来源追踪标签。截图只作为生成原创图表时的布局参考使用；在 handoff 中应保留来源和许可信息。
 
 ## 测试
 
@@ -140,4 +142,4 @@ python scripts/validate_suite.py
 - 本地 `references/` 和 `scripts/` 引用都存在；
 - 根 skill frontmatter 符合 Codex 推荐的 `name` + `description` 规范。
 - Zotero atlas 每个 workflow 至少 5 个示例，图表生成至少 10 个示例。
-- Zotero 图表示例截图存在，并且 manifest 记录了可复用的 CC BY 许可。
+- Zotero 图表示例截图已经直接嵌入 portable gallery，并且 manifest 记录了可复用的 CC BY 许可。

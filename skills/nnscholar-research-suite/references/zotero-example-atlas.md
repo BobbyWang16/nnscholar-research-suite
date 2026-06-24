@@ -2,10 +2,10 @@
 
 Use this atlas when the user asks for reference examples, figure/table
 inspiration, manuscript structure, journal-style prose, or "make it look like a
-top-journal paper." The examples below are derived from the user's Zotero
-metadata and are written as original structural pattern cards. Do not copy
-figures, captions, tables, or long text from the source papers into outputs or
-into this repository.
+top-journal paper." The structural cards are derived from the user's Zotero
+library, and the figure-layout examples use cropped JPG assets bundled directly
+inside this skill. The skill must remain portable: Zotero keys are provenance
+labels only and must not be required to view the examples on another computer.
 
 ## Copyright-Safe Use
 
@@ -15,16 +15,19 @@ into this repository.
 - Generate original diagrams, captions, section plans, and prose.
 - If an actual source figure is required, verify its license first. Otherwise
   link to the article and describe the reusable pattern in your own words.
-- For bundled screenshot assets, use only the crops listed in
-  `assets/zotero-figure-examples/manifest.json`; they were selected from
-  sources recorded as CC BY 4.0 or equivalent. Treat them as low-resolution
-  visual references, not manuscript-ready panels.
+- For bundled screenshot assets, use `references/figure-screenshot-gallery.md`
+  first; it directly embeds the cropped JPG references. The same assets are
+  indexed in `assets/zotero-figure-examples/manifest.json` for automation.
+- Treat screenshot crops as low-resolution visual references, not
+  manuscript-ready panels.
 
 ## Figure Screenshot Assets
 
-When a figure workflow needs concrete visual layout cues, inspect the manifest
-first, then open only the JPGs that match the requested figure type. Each asset
-keeps a Zotero key, source DOI, figure label, pattern tag, and license field.
+When a figure workflow needs concrete visual layout cues, read
+`references/figure-screenshot-gallery.md`, then open only the bundled JPGs that
+match the requested figure type. The manifest is an index for scripts and tests;
+it must point to files inside this skill rather than local Zotero attachments.
+Each asset keeps source DOI, figure label, pattern tag, and license fields.
 
 - `figref-01-radimagenet-workflow`: S04, Figure 1, dataset curation +
   pretraining + transfer-learning workflow, `CC BY 4.0`,
