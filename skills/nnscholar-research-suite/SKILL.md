@@ -7,16 +7,11 @@ description: >
   data figures, image schematics, figure assembly, table formatting, manuscript
   drafting, manuscript polishing, venue recommendation, submission finalization,
   submission portal workflows, cover letters, and reviewer responses. Use this
-  suite for NNScholar academic research workflows and for legacy aliases such as
-  /nnscholar1-1-question-mining through /nnscholar5-5-reviewer-response.
-user-invocable: true
-aligned-stages: literature, design, experiment, writing, submission
-trigger-conditions: nnscholar, research question, literature search, hypothesis, ARS plan, paper architecture, flowchart, experiment validation, data figure, schematic, table formatting, manuscript, journal recommendation, submission, cover letter, reviewer response
-metadata:
-  version: "0.3.0"
-  codex_adapter: true
-  packaging: single-suite-router
-allowed-tools: Read, Glob, Grep, WebSearch, Bash(python *), Bash(python3 *)
+  suite for NNScholar academic research workflows, legacy aliases such as
+  /nnscholar1-1-question-mining through /nnscholar5-5-reviewer-response, and
+  specialist-aware orchestration for clinical/biomedical research, radiology or
+  medical imaging AI, evidence-first literature work, high-impact manuscript
+  writing, figures, citations, submission strategy, and research deliverables.
 ---
 
 # NNScholar Research Suite
@@ -36,6 +31,45 @@ If the request spans multiple workflow stages, start with the earliest stage
 that would unblock the rest of the work. Use `nnscholar2-2-ars-plan` only after
 the research question or hypothesis is sufficiently clear, unless the user
 explicitly asks for a provisional protocol.
+
+## Companion Skill Bridge
+
+NNScholar is the workflow orchestrator. When a request is clearly domain-specific
+or output-specific, keep the selected NNScholar workflow as the spine and use
+`references/companion-skill-bridge.md` to decide whether a co-installed
+specialist skill should provide stricter domain checks.
+
+Read the bridge after choosing the workflow and before producing substantive
+recommendations when the request involves:
+
+- clinical medicine, biomedical research, translational research, omics, or
+  medical literature appraisal;
+- radiology, medical imaging AI, radiomics, CT/MRI/PET/ultrasound, segmentation,
+  ROI/masks, model validation, or imaging reporting checklists;
+- current literature, citation verification, evidence matrices, systematic
+  searching, or claim-to-source binding;
+- Nature/CNS/high-impact manuscript writing, figures, citations, reviewer
+  response, or submission strategy;
+- Word, PDF, spreadsheet, slide deck, or other file-format deliverables.
+
+Use the strictest compatible guardrail. A companion skill can refine evidence,
+domain norms, reporting standards, or file handling, but it must not override a
+locked NNScholar protocol without reopening the relevant upstream workflow.
+
+## Zotero Example Atlas
+
+When the user asks for top-journal examples, figure/table inspiration, paper
+structure, manuscript wording patterns, or "make it look like a high-impact
+paper," read `references/zotero-example-atlas.md` after selecting the workflow.
+The atlas contains copyright-safe structural pattern cards derived from the
+user's Zotero library. Use those cards as inspiration and source pointers, not
+as copied figures, captions, tables, or article text.
+
+For visual figure-layout cues, the atlas also points to the CC BY screenshot
+manifest at `assets/zotero-figure-examples/manifest.json` and selected JPG
+reference crops under `assets/zotero-figure-examples/`. Inspect only the
+matching assets needed for the current figure task, then generate original
+panels and captions with source/license attribution preserved in the handoff.
 
 ## Workflow Router
 
@@ -127,6 +161,8 @@ Use this route table when there is no explicit workflow:
 - Preserve the user's output language for author-facing planning notes. Use
   polished academic English for manuscript-facing text unless the user or venue
   asks otherwise.
+- If a specialist domain bridge is used, record the bridge in the final handoff
+  and name the stricter guardrails that affected the recommendation.
 
 ## Handoff Contract
 
@@ -143,6 +179,7 @@ Locked decisions:
 Open questions:
 Files/artifacts created or used:
 Evidence boundary:
+Companion skill bridge used:
 Risks requiring human confirmation:
 ```
 

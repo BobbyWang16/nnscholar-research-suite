@@ -1,8 +1,8 @@
 interface:
   display_name: "NNScholar Research Suite"
-  short_description: "NNScholar staged research workflows with legacy button aliases."
+  short_description: "NNScholar workflows with specialist checks."
+  default_prompt: "Use $nnscholar-research-suite to route my academic research task and apply relevant specialist checks."
   brand_color: "#5E6AD2"
-  default_prompt: "Use $nnscholar-research-suite to route my academic research task to the right NNScholar workflow."
 
 policy:
   allow_implicit_invocation: true

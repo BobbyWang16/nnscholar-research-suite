@@ -9,6 +9,9 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SUITE_ROOT = REPO_ROOT / "skills" / "nnscholar-research-suite"
 WORKFLOWS_ROOT = SUITE_ROOT / "workflows"
+ATLAS_PATH = SUITE_ROOT / "references" / "zotero-example-atlas.md"
+FIGURE_ASSET_ROOT = SUITE_ROOT / "assets" / "zotero-figure-examples"
+FIGURE_ASSET_MANIFEST = FIGURE_ASSET_ROOT / "manifest.json"
 
 EXPECTED_WORKFLOWS = [
     "nnscholar1-1-question-mining",
@@ -54,6 +57,17 @@ def frontmatter(text: str) -> dict[str, str]:
     return result
 
 
+def markdown_section(text: str, heading: str) -> str | None:
+    pattern = rf"^### {re.escape(heading)}\s*\n(?P<body>.*?)(?=^### |\Z)"
+    match = re.search(pattern, text, flags=re.MULTILINE | re.DOTALL)
+    if match is None:
+        return None
+    return match.group("body")
+
+
+LOCAL_REF_RE = re.compile(r"`?((?:references|scripts)/[A-Za-z0-9._/-]+\.(?:md|py|json|yaml|yml|txt|csv))`?")
+
+
 class SuiteStructureTest(unittest.TestCase):
     def test_single_root_skill(self) -> None:
         skill_files = sorted(path.relative_to(REPO_ROOT).as_posix() for path in (REPO_ROOT / "skills").rglob("SKILL.md"))
@@ -62,11 +76,13 @@ class SuiteStructureTest(unittest.TestCase):
         root_skill = SUITE_ROOT / "SKILL.md"
         meta = frontmatter(read_text(root_skill))
         self.assertEqual(meta.get("name"), "nnscholar-research-suite")
-        self.assertEqual(meta.get("user-invocable"), "true")
+        self.assertEqual(set(meta), {"name", "description"})
 
     def test_manifest_matches_workflows(self) -> None:
         manifest = json.loads(read_text(SUITE_ROOT / "manifest.json"))
+        version = read_text(REPO_ROOT / "VERSION").strip()
         self.assertEqual(manifest["name"], "nnscholar-research-suite")
+        self.assertEqual(manifest["adapter_version"], version)
         self.assertEqual(manifest["workflows"], EXPECTED_WORKFLOWS)
 
         workflow_dirs = sorted(path.name for path in WORKFLOWS_ROOT.iterdir() if path.is_dir())
@@ -90,11 +106,16 @@ class SuiteStructureTest(unittest.TestCase):
             self.assertIn(f"workflows/{workflow_id}/WORKFLOW.md", root_text)
 
     def test_referenced_local_files_exist(self) -> None:
-        local_ref = re.compile(r"`?((?:references|scripts)/[A-Za-z0-9._/-]+\.(?:md|py|json|yaml|yml|txt|csv))`?")
+        root_text = read_text(SUITE_ROOT / "SKILL.md")
+        for match in LOCAL_REF_RE.finditer(root_text):
+            rel = match.group(1).rstrip(".,;:)")
+            path = SUITE_ROOT / rel
+            self.assertTrue(path.exists(), f"root SKILL.md references missing file {rel}")
+
         for workflow_id in EXPECTED_WORKFLOWS:
             workflow_dir = WORKFLOWS_ROOT / workflow_id
             workflow_text = read_text(workflow_dir / "WORKFLOW.md")
-            for match in local_ref.finditer(workflow_text):
+            for match in LOCAL_REF_RE.finditer(workflow_text):
                 rel = match.group(1).rstrip(".,;:)")
                 path = workflow_dir / rel
                 self.assertTrue(path.exists(), f"{workflow_id} references missing file {rel}")
@@ -106,6 +127,54 @@ class SuiteStructureTest(unittest.TestCase):
         all_text = "\n".join(read_text(path) for path in SUITE_ROOT.rglob("*") if path.is_file() and path.suffix in {".md", ".json", ".yaml", ".py"})
         for stale_name in stale_names:
             self.assertNotIn(stale_name, all_text)
+
+    def test_zotero_atlas_example_coverage(self) -> None:
+        self.assertTrue(ATLAS_PATH.exists(), "missing Zotero example atlas")
+        atlas_text = read_text(ATLAS_PATH)
+        self.assertIn("assets/zotero-figure-examples/manifest.json", atlas_text)
+
+        for workflow_id in EXPECTED_WORKFLOWS:
+            section = markdown_section(atlas_text, workflow_id)
+            self.assertIsNotNone(section, f"missing atlas section for {workflow_id}")
+            assert section is not None
+
+            if workflow_id == "nnscholar4-1-data-figure":
+                count = len(re.findall(r"^- Figure example \d+:", section, flags=re.MULTILINE))
+                self.assertGreaterEqual(count, 10, "data-figure atlas needs at least 10 figure examples")
+            else:
+                count = len(re.findall(r"^- Example \d+:", section, flags=re.MULTILINE))
+                self.assertGreaterEqual(count, 5, f"{workflow_id} atlas needs at least 5 examples")
+
+    def test_zotero_figure_screenshot_manifest(self) -> None:
+        self.assertTrue(FIGURE_ASSET_MANIFEST.exists(), "missing Zotero figure asset manifest")
+        manifest = json.loads(read_text(FIGURE_ASSET_MANIFEST))
+        self.assertIsInstance(manifest, list)
+        self.assertGreaterEqual(len(manifest), 10)
+
+        seen_ids: set[str] = set()
+        suite_root = SUITE_ROOT.resolve()
+        for entry in manifest:
+            asset_id = entry.get("id")
+            self.assertIsInstance(asset_id, str)
+            self.assertNotIn(asset_id, seen_ids)
+            seen_ids.add(asset_id)
+
+            license_text = str(entry.get("license", "")).upper().replace("-", " ")
+            self.assertIn("CC BY", license_text, f"{asset_id} must use a reusable CC BY license")
+            self.assertNotIn("NC", license_text, f"{asset_id} must not be non-commercial only")
+            self.assertNotIn("ND", license_text, f"{asset_id} must not be no-derivatives only")
+
+            rel_file = entry.get("file")
+            self.assertIsInstance(rel_file, str)
+            self.assertTrue(rel_file.endswith(".jpg"), f"{asset_id} must point to a JPG asset")
+            asset_path = (SUITE_ROOT / rel_file).resolve()
+            asset_path.relative_to(suite_root)
+            self.assertTrue(asset_path.exists(), f"missing screenshot asset {rel_file}")
+            self.assertGreater(asset_path.stat().st_size, 10_000, f"screenshot asset is unexpectedly small: {rel_file}")
+
+            self.assertTrue(entry.get("key"), f"{asset_id} missing Zotero key")
+            self.assertTrue(entry.get("doi"), f"{asset_id} missing DOI")
+            self.assertTrue(entry.get("pattern"), f"{asset_id} missing pattern")
 
 
 if __name__ == "__main__":

@@ -91,6 +91,56 @@ Legacy aliases are also routed by the root skill:
 | 5.4 | `nnscholar5-4-cover-letter` |
 | 5.5 | `nnscholar5-5-reviewer-response` |
 
+## Specialist Bridge
+
+The suite now includes a lightweight companion-skill bridge:
+
+```text
+skills/nnscholar-research-suite/references/companion-skill-bridge.md
+```
+
+NNScholar remains the stage orchestrator, but the bridge tells Codex when to
+borrow stricter checks from co-installed specialist skills. Examples:
+
+- `radiology-skills` for medical imaging AI, radiomics, validation leakage,
+  ROI/masks, CLAIM/CLEAR/RQS/IBSI/TRIPOD+AI/STARD-AI, journal fit, and reviewer
+  response.
+- `medical-research-*`, `paper-search`, `literature-engineer`, and
+  `evidence-binder` for biomedical evidence appraisal, verified literature,
+  algorithm matching, and claim-to-source binding.
+- `nature-*` skills for high-impact manuscript writing, figure logic,
+  citations, submission package checks, and reviewer response discipline.
+- `docx`, `pdf`, `xlsx`, and `pptx` skills for file-format deliverables.
+
+The bridge is optional at runtime: if a companion skill is not installed, Codex
+falls back to the checkpoints in the reference file and marks specialist
+verification as needed.
+
+## Zotero Example Atlas
+
+The suite also includes a copyright-safe example atlas derived from the user's
+Zotero library:
+
+```text
+skills/nnscholar-research-suite/references/zotero-example-atlas.md
+```
+
+It provides at least five structural example cards for every NNScholar workflow
+and 12 chart/figure-generation examples for `nnscholar4-1-data-figure`. The
+cards preserve Zotero keys, venue names, DOI/URLs, and reusable structure
+patterns, but they do not copy source figures, captions, tables, or long article
+text.
+
+For figure-layout inspiration, the suite also bundles 12 low-resolution CC BY
+visual reference crops and a manifest:
+
+```text
+skills/nnscholar-research-suite/assets/zotero-figure-examples/manifest.json
+```
+
+Use these screenshots only as layout references for generating original figures,
+and preserve source/license attribution in any project handoff.
+
 ## Validation
 
 Run the no-dependency structure test:
@@ -107,6 +157,10 @@ The validator checks:
 - every workflow alias appears in the root router
 - referenced local `references/` and `scripts/` files exist
 - stale workflow names are absent
+- root skill frontmatter follows the Codex `name` + `description` convention
+- Zotero atlas coverage includes at least five examples per workflow and at
+  least ten figure examples for data-figure generation
+- Zotero figure screenshot assets exist and use reusable CC BY licensing
 
 ## Design Notes
 

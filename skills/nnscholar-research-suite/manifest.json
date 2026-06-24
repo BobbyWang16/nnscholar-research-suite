@@ -1,6 +1,6 @@
 {
   "name": "nnscholar-research-suite",
-  "adapter_version": "0.3.0",
+  "adapter_version": "0.4.0",
   "generated_for": "codex",
   "packaging": {
     "type": "single_codex_suite_skill",
@@ -33,6 +33,9 @@
     "Codex registers only the root nnscholar-research-suite skill.",
     "Legacy /nnscholar* aliases are handled by the root SKILL.md router.",
     "Desktop workflow buttons remain UI presets and send structured workflow payloads to the suite.",
-    "Internal workflow entry files are named WORKFLOW.md so they are not exposed as separate Codex skills."
+    "Internal workflow entry files are named WORKFLOW.md so they are not exposed as separate Codex skills.",
+    "The root references/companion-skill-bridge.md maps NNScholar stages to co-installed specialist skills such as radiology, biomedical evidence, Nature-style writing, and file-format skills.",
+    "The root references/zotero-example-atlas.md provides copyright-safe top-journal structural example cards derived from the user's Zotero library.",
+    "The assets/zotero-figure-examples/manifest.json file indexes reusable CC BY figure screenshot references for figure-layout inspiration."
   ]
 }
