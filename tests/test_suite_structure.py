@@ -11,6 +11,7 @@ SUITE_ROOT = REPO_ROOT / "skills" / "nnscholar-research-suite"
 WORKFLOWS_ROOT = SUITE_ROOT / "workflows"
 ATLAS_PATH = SUITE_ROOT / "references" / "zotero-example-atlas.md"
 FIGURE_GALLERY_PATH = SUITE_ROOT / "references" / "figure-screenshot-gallery.md"
+VISUAL_PATTERN_PATH = SUITE_ROOT / "references" / "publication-visual-pattern-library.md"
 FIGURE_ASSET_ROOT = SUITE_ROOT / "assets" / "zotero-figure-examples"
 FIGURE_ASSET_MANIFEST = FIGURE_ASSET_ROOT / "manifest.json"
 
@@ -60,6 +61,16 @@ def frontmatter(text: str) -> dict[str, str]:
 
 def markdown_section(text: str, heading: str) -> str | None:
     pattern = rf"^### {re.escape(heading)}\s*\n(?P<body>.*?)(?=^### |\Z)"
+    match = re.search(pattern, text, flags=re.MULTILINE | re.DOTALL)
+    if match is None:
+        return None
+    return match.group("body")
+
+
+def markdown_heading_section(text: str, heading: str, level: int) -> str | None:
+    marker = "#" * level
+    next_marker = r"#{1,%d}" % level
+    pattern = rf"^{marker} {re.escape(heading)}\s*\n(?P<body>.*?)(?=^{next_marker} |\Z)"
     match = re.search(pattern, text, flags=re.MULTILINE | re.DOTALL)
     if match is None:
         return None
@@ -133,6 +144,7 @@ class SuiteStructureTest(unittest.TestCase):
         self.assertTrue(ATLAS_PATH.exists(), "missing Zotero example atlas")
         atlas_text = read_text(ATLAS_PATH)
         self.assertIn("references/figure-screenshot-gallery.md", atlas_text)
+        self.assertIn("references/publication-visual-pattern-library.md", atlas_text)
         self.assertIn("assets/zotero-figure-examples/manifest.json", atlas_text)
 
         for workflow_id in EXPECTED_WORKFLOWS:
@@ -193,6 +205,39 @@ class SuiteStructureTest(unittest.TestCase):
             asset_path = (FIGURE_GALLERY_PATH.parent / rel_embed).resolve()
             asset_path.relative_to(SUITE_ROOT.resolve())
             self.assertTrue(asset_path.exists(), f"gallery embeds missing asset {rel_embed}")
+
+    def test_publication_visual_pattern_library_coverage(self) -> None:
+        self.assertTrue(VISUAL_PATTERN_PATH.exists(), "missing publication visual pattern library")
+        library_text = read_text(VISUAL_PATTERN_PATH)
+
+        visual_sections = [
+            "Three-Line Tables",
+            "Subfigure And Group-Figure Layouts",
+            "Flowcharts",
+            "Data-Analysis Plots",
+        ]
+        for heading in visual_sections:
+            section = markdown_heading_section(library_text, heading, level=2)
+            self.assertIsNotNone(section, f"missing visual pattern section {heading}")
+            assert section is not None
+            examples = len(re.findall(r"^- Example \d+:", section, flags=re.MULTILINE))
+            self.assertGreaterEqual(examples, 10, f"{heading} needs at least 10 examples")
+            crop_rules = len(re.findall(r"Crop/keep\s+rule:", section))
+            self.assertGreaterEqual(crop_rules, 10, f"{heading} needs crop/keep guidance per example")
+
+        companion_sections = [
+            "companion-radiology-skills",
+            "companion-dl-radiology-skill",
+            "companion-medical-research-skills",
+            "companion-literature-evidence-skills",
+            "companion-manuscript-submission-skills",
+        ]
+        for heading in companion_sections:
+            section = markdown_heading_section(library_text, heading, level=3)
+            self.assertIsNotNone(section, f"missing companion example section {heading}")
+            assert section is not None
+            examples = len(re.findall(r"^- Example \d+:", section, flags=re.MULTILINE))
+            self.assertGreaterEqual(examples, 5, f"{heading} needs at least 5 examples")
 
 
 if __name__ == "__main__":

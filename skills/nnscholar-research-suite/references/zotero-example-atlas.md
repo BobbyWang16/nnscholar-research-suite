@@ -18,6 +18,9 @@ labels only and must not be required to view the examples on another computer.
 - For bundled screenshot assets, use `references/figure-screenshot-gallery.md`
   first; it directly embeds the cropped JPG references. The same assets are
   indexed in `assets/zotero-figure-examples/manifest.json` for automation.
+- For three-line tables, subfigures/group figures, flowcharts, and data-analysis
+  plots, use `references/publication-visual-pattern-library.md`; it separates
+  crop/keep rules and provides at least ten examples per visual category.
 - Treat screenshot crops as low-resolution visual references, not
   manuscript-ready panels.
 
@@ -28,6 +31,11 @@ When a figure workflow needs concrete visual layout cues, read
 match the requested figure type. The manifest is an index for scripts and tests;
 it must point to files inside this skill rather than local Zotero attachments.
 Each asset keeps source DOI, figure label, pattern tag, and license fields.
+
+For table, subfigure, group-figure, flowchart, or data-analysis plot generation,
+also read `references/publication-visual-pattern-library.md` before drafting the
+output. It distinguishes whether to keep a full reference, inspect only a
+subpanel crop, or abstract the structure without reusing visual content.
 
 - `figref-01-radimagenet-workflow`: S04, Figure 1, dataset curation +
   pretraining + transfer-learning workflow, `CC BY 4.0`,

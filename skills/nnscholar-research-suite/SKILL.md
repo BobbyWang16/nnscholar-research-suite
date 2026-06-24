@@ -65,14 +65,19 @@ The atlas contains copyright-safe structural pattern cards derived from the
 user's Zotero library. Use those cards as inspiration and source pointers, not
 as copied figures, captions, tables, or article text.
 
-For visual figure-layout cues, the atlas also points to the CC BY screenshot
-gallery at `references/figure-screenshot-gallery.md`, the asset manifest at
-`assets/zotero-figure-examples/manifest.json`, and selected JPG reference crops
-under `assets/zotero-figure-examples/`. These images are bundled with the skill
-for portable use on other computers; Zotero keys are provenance labels only.
-Inspect only the matching assets needed for the current figure task, then
-generate original panels and captions with source/license attribution preserved
-in the handoff.
+For visual figure-layout cues, table formats, subfigures/group figures,
+flowcharts, and data-analysis plots, read
+`references/publication-visual-pattern-library.md`. It separates three-line
+tables, subfigure/group layouts, flowcharts, and data-analysis plots with at
+least ten examples per category and explicit crop/keep rules.
+
+For concrete bundled screenshots, read `references/figure-screenshot-gallery.md`,
+the asset manifest at `assets/zotero-figure-examples/manifest.json`, and selected
+JPG reference crops under `assets/zotero-figure-examples/`. These images are
+bundled with the skill for portable use on other computers; Zotero keys are
+provenance labels only. Inspect only the matching assets needed for the current
+figure task, then generate original panels and captions with source/license
+attribution preserved in the handoff.
 
 ## Workflow Router
 

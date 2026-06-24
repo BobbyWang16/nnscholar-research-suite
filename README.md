@@ -131,6 +131,17 @@ cards preserve Zotero keys, venue names, DOI/URLs, and reusable structure
 patterns, but they do not copy source figures, captions, tables, or long article
 text.
 
+The suite also includes a publication visual pattern library:
+
+```text
+skills/nnscholar-research-suite/references/publication-visual-pattern-library.md
+```
+
+It separates three-line tables, subfigures/group figures, flowcharts, and
+data-analysis plots. Each category contains at least ten examples with explicit
+crop/keep guidance. Companion specialist-skill packs also contain at least five
+examples each.
+
 For figure-layout inspiration, the suite also bundles 12 low-resolution CC BY
 visual reference crops, a Markdown gallery that directly embeds them, and a
 manifest for automation:
@@ -164,6 +175,9 @@ The validator checks:
 - root skill frontmatter follows the Codex `name` + `description` convention
 - Zotero atlas coverage includes at least five examples per workflow and at
   least ten figure examples for data-figure generation
+- publication visual examples include at least ten examples each for three-line
+  tables, subfigure/group layouts, flowcharts, and data-analysis plots
+- companion specialist-skill packs include at least five examples each
 - Zotero figure screenshot assets are directly embedded in a portable gallery
   and use reusable CC BY licensing
 

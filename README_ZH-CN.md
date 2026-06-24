@@ -116,6 +116,14 @@ skills/nnscholar-research-suite/references/zotero-example-atlas.md
 这个文件基于用户 Zotero 库中的顶刊/高质量论文 metadata，整理成版权安全的结构示例卡。它为每个 NNScholar workflow 提供不少于 5 个参考示例，并为
 `nnscholar4-1-data-figure` 提供 12 个图表生成示例。示例会保留 Zotero key、期刊、DOI/URL 和可模仿结构，但不会复制论文原图、caption、表格或长段原文。
 
+本版本还新增 publication visual pattern library：
+
+```text
+skills/nnscholar-research-suite/references/publication-visual-pattern-library.md
+```
+
+它把三线表格、子图/组图、流程图、数据分析图分开整理，每类都不少于 10 个示例，并写清楚“保留整图、裁剪子面板、只抽象结构”的使用规则。其他 companion specialist skill 示例包也都不少于 5 个示例。
+
 为了让图表生成有更具体的版式参考，本版本还附带 12 张低分辨率 CC BY
 图表示例截图、一个直接嵌入这些图片的 Markdown gallery，以及用于自动化校验的
 manifest：
@@ -142,4 +150,6 @@ python scripts/validate_suite.py
 - 本地 `references/` 和 `scripts/` 引用都存在；
 - 根 skill frontmatter 符合 Codex 推荐的 `name` + `description` 规范。
 - Zotero atlas 每个 workflow 至少 5 个示例，图表生成至少 10 个示例。
+- 三线表格、子图/组图、流程图、数据分析图每类至少 10 个示例。
+- companion specialist skill 示例包每组至少 5 个示例。
 - Zotero 图表示例截图已经直接嵌入 portable gallery，并且 manifest 记录了可复用的 CC BY 许可。
