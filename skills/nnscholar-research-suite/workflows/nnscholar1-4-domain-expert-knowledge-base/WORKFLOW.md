@@ -1,4 +1,4 @@
----
+﻿---
 name: nnscholar1-4-domain-expert-knowledge-base
 description: Use when NNScholar needs to convert question mining, literature search, hypothesis reports, PDFs, and local research materials into a reusable citation-grounded domain expert knowledge base for study design, data analysis, writing, reviewer-risk checks, or future project consultation.
 ---
@@ -25,7 +25,7 @@ Inspired by `papers-to-skill`: do not create a one-off summary or raw RAG dump. 
 
 Reference: https://github.com/luckylykkk/papers-to-skill
 
-Version: `0.2.0`. Stage: `literature / domain expert knowledge base`. Legacy workflow alias: `$nnscholar1-4-domain-expert-knowledge-base`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `literature / domain expert knowledge base`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -33,7 +33,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar1-4-domain-expert-knowledge-base` / `/nnscholar1-4-domain-expert-knowledge-base`.
+- Keep the workflow id and folder name as `nnscholar1-4-domain-expert-knowledge-base` / `/nnscholar1-4-domain-expert-knowledge-base`.
 - Keep the title format as `NNScholar 1.4 Domain Expert KB`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 

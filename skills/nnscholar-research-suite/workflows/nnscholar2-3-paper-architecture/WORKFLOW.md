@@ -1,13 +1,13 @@
----
+﻿---
 name: nnscholar2-3-paper-architecture
-description: Use when NNScholar needs to turn a research plan, ARS plan, study protocol, literature review, hypothesis, dataset, experiment, computational benchmark, thesis topic, or grant idea into a multidisciplinary paper architecture. Trigger for manuscript structure, article outline, paper architecture, section logic, abstract skeleton, figure/table blueprint, result narrative, claim boundary, journal-ready storyline, or writing blueprint. Prefer this skill after NNScholar 2.2 ARS Plan exists, but also use it from scratch when the user only provides a topic, idea, hypothesis, or draft.
+description: Use when NNScholar needs to plan the paper-writing part of a project: manuscript structure, what each section should write, how experiments determine the required figures/tables, result narrative, claim boundary, article outline, abstract skeleton, journal-ready storyline, or writing blueprint. Prefer this skill after NNScholar 2.2 Experimental ARS Plan exists, but also use it from scratch when the user only provides a topic, idea, hypothesis, or draft.
 ---
 
 # NNScholar 2.3 Paper Architecture
 
-This skill designs the architecture of a scholarly paper. It does not write the paper body. It turns upstream research evidence into a structured manuscript blueprint: article type, storyline, section logic, figure/table plan, result order, discussion argument, and claim boundary.
+This skill designs the architecture of a scholarly paper. It does not write the paper body and it does not redesign experiments. It turns upstream research evidence and the 2.2 experimental plan/results into a structured manuscript blueprint: article type, storyline, section-by-section writing plan, figure/table plan, result order, discussion argument, and claim boundary.
 
-Version: `0.2.0`. Stage: `research setting / paper architecture`. Legacy workflow alias: `$nnscholar2-3-paper-architecture`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `research setting / paper architecture`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -15,7 +15,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar2-3-paper-architecture` / `/nnscholar2-3-paper-architecture`.
+- Keep the workflow id and folder name as `nnscholar2-3-paper-architecture` / `/nnscholar2-3-paper-architecture`.
 - Keep the title format as `NNScholar 2.3 Paper Architecture`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 
@@ -40,6 +40,16 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 Prefer protocol-linked architecture. If `nnscholar2-2-ars-plan` exists, treat it as the design authority for Methods, Results, variables, endpoints, experiments, models, corpora, and analysis methods. Do not silently change the research design. If architecture work reveals a protocol problem, send the user back to `nnscholar2-2-ars-plan`.
 
 If no 2.2 protocol exists, build a provisional paper architecture from available 1.1-1.4/2.1 outputs or the user's current input, and mark which sections cannot be finalized.
+
+2.3 answers:
+
+- What type of paper should this become?
+- What should each manuscript section write?
+- Which experimental outputs from 2.2 become which results paragraphs?
+- Which figures and tables are needed to support the paper's claims?
+- What is the safest claim boundary?
+
+2.3 must not create the detailed experimental flowchart or decide how each experiment is performed; those belong to 2.2. It can reference the 2.2 experimental flowchart as the Methods/Figure 1 source.
 
 ## Run Modes
 
@@ -85,6 +95,39 @@ Before outlining, choose a discipline/article family:
 
 Load `references/discipline-architecture-guide.md` when discipline-specific section logic or figure/table patterns matter.
 
+## Supervisor Guardrail Integration
+
+For AI/data-science, database, systems, ML, NLP, benchmark/evaluation, or
+technical CS papers, read `../../references/supervisor-research-guardrails.md`
+before Step 3. Apply the Technical Paper Logic Gate for method/problem papers,
+the Benchmark Paper Gate for benchmark/evaluation papers, the Introduction Gate
+for intro logic, and the Core Figure Gate for figure/table blueprint. Any
+broken limitation-key idea-challenge-method-contribution chain is a CRITICAL
+architecture issue and should route back to 2.2 or an upstream workflow before
+drafting.
+
+For papers based on repos, training logs, benchmark runs, or autonomous research
+iterations, also read `../../references/ai-research-engineering-guardrails.md`.
+Use the Repo-to-Paper Evidence Gate to map sections and figures to concrete
+artifacts, and use the Evaluation Harness Gate to require benchmark settings and
+uncertainty before claiming leaderboard-style improvements.
+
+## High-Impact Paper Integration
+
+For Nature/CNS, Nature-family, Cell/Science-family, or other high-impact
+multidisciplinary targets, read
+`../../references/high-impact-paper-guardrails.md` before Step 2. Apply its
+paper-type taxonomy and argument chain:
+
+```text
+field-scale need -> unresolved bottleneck -> proposed move -> decisive evidence -> broader implication -> boundary
+```
+
+The architecture must include a paper type (`research`, `methods`,
+`hypothesis`, `algorithmic`, or `review`), a terminology ledger, Results
+evidence ladder, and claim ceiling. If a link is missing, mark the architecture
+provisional instead of hiding the gap with stronger prose.
+
 ## Workflow
 
 ### Step 1: Architecture Intake
@@ -104,6 +147,9 @@ Return a compact architecture card before long output.
 
 Define:
 
+- paper type and high-impact argument chain when relevant;
+- terminology ledger decisions for repeated methods, models, datasets, cohorts,
+  metrics, materials, assays, or concepts;
 - one-sentence storyline;
 - central contribution;
 - opening gap;
@@ -119,10 +165,10 @@ Create section-level logic appropriate for the discipline. For empirical IMRaD p
 
 - Title candidates;
 - Abstract skeleton;
-- Introduction paragraph logic;
-- Methods architecture;
-- Results architecture;
-- Discussion architecture;
+- Introduction paragraph logic and what each paragraph should establish;
+- Methods architecture, derived strictly from 2.2;
+- Results architecture, mapping each experiment/result block to a paper subsection;
+- Discussion architecture, including interpretation, comparison, implications, limitations, and claim boundary;
 - Conclusion boundary.
 
 For non-IMRaD outputs, adapt the structure instead of forcing IMRaD.
@@ -131,12 +177,20 @@ For non-IMRaD outputs, adapt the structure instead of forcing IMRaD.
 
 Every figure/table must answer a specific manuscript question. Include:
 
+- figure core conclusion or table primary claim;
 - figure/table title;
+- experiment/result block that generates it;
 - evidence displayed;
 - section placement;
 - dependency on data/protocol;
 - claim supported;
 - risk if missing.
+
+For high-impact targets, also state the figure archetype, hero evidence,
+supporting evidence, source-data need, and whether the item belongs in main text
+or supplementary material.
+
+When real results are not available, label figure/table content as `planned` or `expected display`, not as observed results.
 
 For detailed template, use `references/paper-architecture-output-template.md`.
 
@@ -153,9 +207,9 @@ Audit:
 - missing evidence;
 - downstream readiness.
 
-If ready, hand off to `nnscholar4-5-manuscript-drafting` or `nnscholar2-4-flowchart-design`. If Methods/Results architecture is unstable, hand back to `nnscholar2-2-ars-plan`.
+If ready, hand off to `nnscholar4-3-paper-writing`. If Methods/Results architecture or the experiment flowchart is unstable, hand back to `nnscholar2-2-ars-plan`.
 
-When handing off to 4.5, include a compact drafting contract:
+When handing off to 4.3, include a compact drafting contract:
 
 ```text
 Drafting readiness:
@@ -188,3 +242,4 @@ Do not:
 - change a locked 2.2 protocol;
 - add endpoints, variables, models, or claims that are not supported by upstream evidence;
 - force clinical IMRaD structure onto humanities, conceptual, engineering, or qualitative work when another structure fits better.
+- draw or revise the executable experimental flowchart; use 2.2 for that.

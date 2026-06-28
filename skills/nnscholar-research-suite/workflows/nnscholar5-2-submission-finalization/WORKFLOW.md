@@ -1,4 +1,4 @@
----
+﻿---
 name: nnscholar5-2-submission-finalization
 description: Use when NNScholar needs to revise, format, finalize, audit, or package a manuscript for a specific journal, conference, preprint server, thesis submission, or publisher after target recommendation. Handles author guidelines, formatting compliance, title page, blinded manuscript, highlights, graphical abstract notes, supplementary files, ethics/funding/COI/data-code availability statements, checklist completion, revision-before-submission, and final submission package quality control across disciplines.
 ---
@@ -7,7 +7,7 @@ description: Use when NNScholar needs to revise, format, finalize, audit, or pac
 
 This skill converts a polished manuscript into a target-specific submission package. It checks author guidelines, revises required components, and creates a finalization checklist.
 
-Version: `0.2.0`. Stage: `submission / finalization`. Legacy workflow alias: `$nnscholar5-2-submission-finalization`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `submission / finalization`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -15,7 +15,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar5-2-submission-finalization` / `/nnscholar5-2-submission-finalization`.
+- Keep the workflow id and folder name as `nnscholar5-2-submission-finalization` / `/nnscholar5-2-submission-finalization`.
 - Keep the title format as `NNScholar 5.2 Submission Finalization`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 
@@ -64,9 +64,9 @@ Do not use this skill for:
 
 1. `nnscholar5-1-journal-conference-recommendation`: selected target, revision priorities.
 2. Official author guidelines, conference CFP, template, or user-provided requirements.
-3. `nnscholar4-6-manuscript-polishing`: polished manuscript and consistency audit.
-4. `nnscholar4-5-manuscript-drafting`: manuscript draft and missing-evidence checklist.
-5. `nnscholar4-1` to `nnscholar4-4`: figure/table outputs and captions/notes.
+3. `nnscholar4-3-paper-writing`: manuscript draft, polished manuscript, consistency audit, and missing-evidence checklist.
+4. `nnscholar4-1-paper-figure`: figure outputs, graphical abstract notes, captions, and export notes.
+5. `nnscholar4-2-paper-table`: table outputs, titles, notes, and format notes.
 6. User-provided title page, author info, supplementary materials, statements, and files.
 
 ## Workflow
@@ -107,6 +107,14 @@ Use `references/finalization-checklist.md` to audit:
 - anonymity/double-blind requirements;
 - reporting checklist.
 
+For Nature-family, Cell, Science, CNS-style, flagship society, or other high-impact targets, also read `../../references/high-impact-paper-guardrails.md` and audit:
+
+- terminology ledger consistency across title, abstract, main text, figures, tables, and supplement;
+- display-item count, main-text vs supplementary placement, and whether every central figure/table has a source-data route;
+- Data Availability, Code Availability, repository identifier, accession/DOI, license, README/metadata, and restricted-data access procedure;
+- citation/source verification for central claims, factual venue statements, and reused datasets;
+- reviewer-style risks across technical soundness, originality/significance, and interdisciplinary readability.
+
 ### Step 3: Revision and Package Plan
 
 Produce:
@@ -120,6 +128,8 @@ Author-provided facts required:
 Submission blockers:
 ```
 
+Block final approval when a central dataset lacks a durable access route, a DOI/accession/repository identifier is unresolved, restricted data lack an access procedure, source data are missing for central figures/tables, or the data/code availability statements conflict with the actual files.
+
 ### Step 4: Finalization Outputs
 
 When generating files, use `scripts/create_finalization_package.py`. Use `references/finalization-output-template.md` for the report.
@@ -132,6 +142,24 @@ When generating files, use `scripts/create_finalization_package.py`. Use `refere
 - Education/psychology: check ethics, consent, instruments, preregistration if relevant, and scale permissions.
 - Economics/social science: check data/code availability, appendices, replication files, and model tables.
 - Humanities: check citation style, transliteration, source permissions, images, archives, and notes format.
+
+## Supervisor Guardrail Integration
+
+For AI/data-science, database, systems, ML, NLP, benchmark/evaluation, or
+technical CS submissions, read
+`../../references/supervisor-research-guardrails.md` and apply the
+Pre-Submission Review Gate before final package approval. Add CRITICAL and
+MAJOR findings to `submission blockers` or `required edits`, especially broken
+paper logic, missing baselines, unsupported benchmark claims, figure-quality
+failures, LaTeX/formatting issues, artifact checklist gaps, and repeated
+AI-tone wording.
+
+For AI/ML/LLM/systems venues, also read
+`../../references/ai-research-engineering-guardrails.md`. Apply the Citation
+and Venue Gate, Evaluation Harness Gate, ARA Provenance Gate, and Rigor Review
+Gate as applicable. Final approval requires verified venue rules, reproducible
+benchmark settings, code/data/artifact statement status, and explicit
+placeholders for any unverified citation or compliance item.
 
 ## Output Rules
 

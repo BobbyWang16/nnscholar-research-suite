@@ -157,7 +157,7 @@ keeps a Zotero key, source DOI, figure label, pattern tag, and license field.
 - Example 4: S20-style architecture: segmentation problem -> annotation and benchmark -> model design -> quantitative segmentation results -> error analysis -> reusable tool.
 - Example 5: S08-style architecture: evaluation problem -> imbalanced-data pitfalls -> metric comparison -> calibration/threshold results -> recommendations for future studies.
 
-### nnscholar2-4-flowchart-design
+### nnscholar2-2-ars-plan experimental flowcharts
 
 - Example 1: S04-inspired dataset flow: source datasets -> modality filtering -> preprocessing -> pretraining -> task-specific fine-tuning -> external tests.
 - Example 2: S05-inspired longitudinal flow: baseline MRI -> follow-up MRI -> temporal encoder -> survival model -> risk groups -> Kaplan-Meier validation.
@@ -165,7 +165,7 @@ keeps a Zotero key, source DOI, figure label, pattern tag, and license field.
 - Example 4: S19-inspired segmentation flow: 2D foundation model -> 3D adaptation -> prompt/label inputs -> segmentation output -> Dice/HD95 evaluation.
 - Example 5: S18-inspired multimodal flow: radiology branch + histology branch + clinical covariates -> co-attention fusion -> survival prediction -> ablation.
 
-### nnscholar3-1-experiment-validation-plan
+### nnscholar2-2-ars-plan validation examples
 
 - Example 1: Validate S08-like evaluation claims by comparing AUC, AUPRC, calibration slope, Brier score, and DCA under multiple imbalance ratios.
 - Example 2: Validate S06-like radiomics habitat stability through center-held-out testing, scanner perturbation, mask perturbation, and feature reproducibility.
@@ -173,7 +173,15 @@ keeps a Zotero key, source DOI, figure label, pattern tag, and license field.
 - Example 4: Validate S19/S22 segmentation models with organ/lesion-wise Dice, HD95, failure-case review, and reader adjudication for ambiguous boundaries.
 - Example 5: Validate S02/S03 foundation models with task transfer, low-label settings, OOD center testing, and comparison with strong supervised baselines.
 
-### nnscholar4-1-data-figure
+### nnscholar3-1-experiment-validation-plan
+
+- Example 1: Execute an S08-style evaluation audit by running discrimination, calibration, threshold, subgroup, and class-imbalance checks from a locked protocol.
+- Example 2: Execute an S06-style radiomics validation loop by tracking mask perturbation, scanner sensitivity, held-out center performance, and reproducibility artifacts.
+- Example 3: Execute an S15/S31-style imaging-biology validation loop by separating imaging model performance, immune-assay association, and mechanism-language limits.
+- Example 4: Execute an S19/S22-style segmentation validation loop by producing organ/lesion metrics, failure-case panels, annotation notes, and reader-QC decisions.
+- Example 5: Execute an S02/S03/S17-style foundation-model benchmark loop by logging transfer tasks, low-label settings, OOD tests, baselines, ablations, and release-readiness gaps.
+
+### nnscholar4-1-paper-figure: data figures
 
 - Figure example 1: S04 pretraining-transfer workflow panel; visual reference
   `figref-01-radimagenet-workflow`. Show source datasets -> modality filtering
@@ -214,7 +222,7 @@ keeps a Zotero key, source DOI, figure label, pattern tag, and license field.
   `figref-12-lung-pathology-prognostic`. Link AI-derived quantitative features,
   representative visual examples, survival stratification, and model evidence.
 
-### nnscholar4-2-image-schematic
+### nnscholar4-1-paper-figure: scientific schematics
 
 - Example 1: S02-inspired foundation-model schematic: WSI patches -> multimodal encoder -> task heads -> validation cohorts -> interpretability panel.
 - Example 2: S03/S17 CT foundation-model schematic: CT volume -> self-supervised pretraining -> fine-tuning tasks -> OOD validation -> clinical use boundary.
@@ -222,7 +230,7 @@ keeps a Zotero key, source DOI, figure label, pattern tag, and license field.
 - Example 4: S19/S22 segmentation schematic: prompt or anatomical prior -> 3D adaptation -> mask output -> QC loop -> metric dashboard.
 - Example 5: S10/S28 spatial biology schematic: tissue image -> cell segmentation -> spatial neighborhoods -> immune-marker map -> outcome association.
 
-### nnscholar4-3-figure-assembly
+### nnscholar4-1-paper-figure: multi-panel assembly
 
 - Example 1: Assemble a 5-panel imaging-AI figure from S05: cohort flow, model overview, ROC/time-dependent ROC, KM risk groups, and calibration.
 - Example 2: Assemble a 6-panel radiomics habitat figure from S06/S13: image, ROI, habitat map, feature stability, model result, and biology association.
@@ -230,7 +238,7 @@ keeps a Zotero key, source DOI, figure label, pattern tag, and license field.
 - Example 4: Assemble a segmentation figure from S19/S20/S22: raw images, annotations, masks, quantitative metrics, and reader/QC notes.
 - Example 5: Assemble a multimodal oncology figure from S18/S24/S25: modality branches, fusion model, ablation, clinical endpoint, and subgroup analysis.
 
-### nnscholar4-4-table-formatting
+### nnscholar4-2-paper-table
 
 - Example 1: S05 clinical cohort table. Columns: training/internal/external cohorts; rows: demographics, tumor stage, MRI timepoints, endpoint, censoring, and missingness.
 - Example 2: S08 model evaluation table. Rows: model variants; columns: AUC, AUPRC, sensitivity, specificity, calibration slope, Brier score, DCA net benefit, CI.
@@ -238,7 +246,7 @@ keeps a Zotero key, source DOI, figure label, pattern tag, and license field.
 - Example 4: S19 segmentation table. Rows: organs/lesions or datasets; columns: Dice, HD95, false positive rate, annotation source, and failure mode.
 - Example 5: S24/S25 therapy-response table. Rows: clinical-only, imaging-only, pathology-only, multimodal; columns: response endpoint, discrimination, calibration, subgroup performance.
 
-### nnscholar4-5-manuscript-drafting
+### nnscholar4-3-paper-writing: drafting
 
 - Example 1: S02-style Results order: model scope -> benchmark breadth -> external validation -> interpretability -> limitations. Keep claims tied to provided tasks.
 - Example 2: S05-style Methods order: cohort -> imaging timepoints -> preprocessing -> model -> survival endpoint -> statistics -> validation.
@@ -246,7 +254,7 @@ keeps a Zotero key, source DOI, figure label, pattern tag, and license field.
 - Example 4: S13/S25-style translational drafting: noninvasive model -> treatment-response endpoint -> biological association -> clinical decision caution.
 - Example 5: S19/S20-style method paper drafting: problem -> annotation resource -> architecture -> benchmark -> failure analysis -> reusable implementation.
 
-### nnscholar4-6-manuscript-polishing
+### nnscholar4-3-paper-writing: polishing
 
 - Example 1: From S05, polish survival claims by replacing "predicts outcome" with evidence-bounded language tied to cohort, endpoint, and validation set.
 - Example 2: From S08, add evaluation nuance when prose over-relies on AUC; insert calibration, imbalance, and threshold-utility caveats.

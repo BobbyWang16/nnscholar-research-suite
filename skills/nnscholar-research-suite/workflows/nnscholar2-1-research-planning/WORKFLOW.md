@@ -1,15 +1,15 @@
----
+﻿---
 name: nnscholar2-1-research-planning
-description: Use when NNScholar needs to turn a selected research question, literature-search output, hypothesis report, or domain knowledge base into an executable research plan. Trigger for research planning, project planning, study execution plans, timelines, milestones, work packages, dependency sequencing, feasibility/risk audits, next research steps, or recovery plans for active projects.
+description: Use when NNScholar needs to turn a selected research question, literature-search output, hypothesis report, or domain knowledge base into a project-level research plan with milestones and a Gantt chart. Trigger for research planning, project planning, timelines, milestones, work packages, dependency sequencing, feasibility/risk audits, next research steps, or recovery plans for active projects. Do not design detailed experiment procedures here; hand those to 2.2.
 ---
 
 # NNScholar 2.1 Research Planning
 
-This skill turns an already chosen research direction into an executable research plan. It acts as a research project manager: clarify the current state, define scope, break the work into packages, sequence dependencies, estimate a realistic timeline, identify risks, and decide the next concrete actions.
+This skill turns an already chosen research direction into an executable project research plan. It acts as a research project manager: clarify the current state, define scope, break the work into packages, sequence dependencies, estimate a realistic timeline, draw a Gantt chart, identify risks, and decide the next concrete actions.
 
-It is inspired by `research-planning`, `ars-plan`, `research-ideation`, and `scientific-critical-thinking`, but is narrower: do not continue literature searching, invent new hypotheses, write manuscript prose, or design detailed protocols unless those are needed to make the plan coherent.
+It is inspired by `research-planning`, `ars-plan`, `research-ideation`, and `scientific-critical-thinking`, but is narrower: do not continue literature searching, invent new hypotheses, write manuscript prose, or design detailed experiment protocols. Detailed experimental steps, experiment flowcharts, and expected experimental results belong to `nnscholar2-2-ars-plan`.
 
-Version: `0.2.0`. Stage: `research setting / research planning`. Legacy workflow alias: `$nnscholar2-1-research-planning`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `research setting / research planning`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -17,7 +17,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar2-1-research-planning` / `/nnscholar2-1-research-planning`.
+- Keep the workflow id and folder name as `nnscholar2-1-research-planning` / `/nnscholar2-1-research-planning`.
 - Keep the title format as `NNScholar 2.1 Research Planning`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 
@@ -40,6 +40,16 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 ## Core Rule
 
 Produce a plan only after the research object, output goal, and execution constraints are clear enough. If one of these is missing, ask the smallest useful set of questions instead of producing a polished but unstable plan.
+
+The required deliverable is a project-level plan plus Gantt chart. 2.1 answers:
+
+- What is the project trying to achieve?
+- What work packages must be completed?
+- What is the dependency order?
+- What timeline and milestones should be followed?
+- What risks could block the project?
+
+2.1 must not answer detailed experimental questions such as exact model training sequence, bench protocol steps, endpoint calculation procedure, pseudo-code workflow, or expected per-experiment result patterns. Those belong to 2.2.
 
 Default minimum questions when the user only clicks the button or provides a vague topic:
 
@@ -180,6 +190,14 @@ Create a realistic timeline using the user's time window. If no time window is g
 
 Each milestone must have an observable deliverable.
 
+Also create a Gantt chart. Prefer Mermaid `gantt` syntax when the output format supports Markdown/Mermaid; otherwise provide a compact table with week/month columns. The Gantt chart must show:
+
+- work package names;
+- start and end windows;
+- dependencies or blockers;
+- milestones;
+- parallelizable tasks.
+
 ### Step 6: Risk and Feasibility Audit
 
 Check:
@@ -205,10 +223,11 @@ Return a concise planning brief in chat. For full reports, follow the template a
 - work packages;
 - task dependency map;
 - timeline and milestones;
+- Gantt chart;
 - risks and fallbacks;
 - quality gates;
 - next 3 actions;
-- downstream handoff to `research-scheme`, `paper-architecture`, or `flowchart-design` when appropriate.
+- downstream handoff to `nnscholar2-2-ars-plan` for experimental protocol/flowchart work or `nnscholar2-3-paper-architecture` for writing architecture.
 
 ## Interaction Pattern
 
@@ -243,6 +262,14 @@ Before finalizing, verify:
 
 If a gate fails, mark the plan as provisional and explain what must be clarified.
 
+## AI Research Engineering Integration
+
+For AI/data-science, ML, LLM, RAG, agent, multimodal, systems, benchmark/evaluation, model-training, or autonomous experiment projects, read `../../references/ai-research-engineering-guardrails.md` during planning.
+
+Add the Two-Loop Research Cycle to the plan: the inner loop runs experiments and records results; the outer loop reflects on findings, updates hypotheses, and revises the next experiment trajectory. Include work packages for research state, findings, research log, experiment trajectory, baseline/metric/evaluation gates, artifact/provenance tasks, and handoff checkpoints. When the project spans multiple sessions or agents, include ARA-style provenance, rigor review, and compiler-ready evidence artifacts.
+
+Keep detailed protocol steps, model settings, and evaluation harness specifications in `../nnscholar2-2-ars-plan/WORKFLOW.md`. For technical CS or ML projects that may target competitive venues, also read `../../references/supervisor-research-guardrails.md` and apply its idea-evaluation gate before finalizing the timeline.
+
 ## Non-goals
 
 Do not:
@@ -252,3 +279,4 @@ Do not:
 - draft manuscript prose;
 - pretend missing data, approvals, or citations exist;
 - create an over-detailed protocol when the user only needs a project timeline.
+- draw the detailed experimental flowchart; use 2.2 for that.

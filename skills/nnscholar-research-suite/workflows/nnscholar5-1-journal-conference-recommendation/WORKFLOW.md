@@ -1,4 +1,4 @@
----
+﻿---
 name: nnscholar5-1-journal-conference-recommendation
 description: Use when NNScholar needs to recommend, compare, rank, or revise target journals, conferences, preprint venues, Chinese journals, SCI/SSCI/EI/Scopus venues, CCF/AI conferences, medical journals, materials/chemistry journals, education/psychology journals, economics/social science journals, humanities journals, or interdisciplinary publication venues. Produces multidisciplinary venue fit analysis, submission strategy, risk assessment, revision priorities, fallback plan, and author decision checklist from manuscripts, abstracts, keywords, figures/tables, or NNScholar 4.x outputs.
 ---
@@ -7,7 +7,7 @@ description: Use when NNScholar needs to recommend, compare, rank, or revise tar
 
 This skill recommends publication venues and creates a submission strategy. It is not only a ranking list: it must explain venue fit, rejection risks, required revisions, publication ethics constraints, and fallback paths.
 
-Version: `0.2.0`. Stage: `submission / venue recommendation`. Legacy workflow alias: `$nnscholar5-1-journal-conference-recommendation`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `submission / venue recommendation`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -15,7 +15,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar5-1-journal-conference-recommendation` / `/nnscholar5-1-journal-conference-recommendation`.
+- Keep the workflow id and folder name as `nnscholar5-1-journal-conference-recommendation` / `/nnscholar5-1-journal-conference-recommendation`.
 - Keep the title format as `NNScholar 5.1 Venue Recommendation`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 
@@ -64,8 +64,8 @@ Do not use this skill for:
 
 Use local or conversation outputs in this order:
 
-1. `nnscholar4-6-manuscript-polishing`: polished manuscript, consistency audit, risky claims.
-2. `nnscholar4-5-manuscript-drafting`: manuscript brief, draft, claim map, missing evidence checklist.
+1. `nnscholar4-3-paper-writing`: manuscript brief, draft, polished manuscript, claim map, missing evidence checklist, consistency audit, risky claims.
+2. `nnscholar4-2-paper-table` and `nnscholar4-1-paper-figure`: final table/figure inventory when venue fit depends on display items.
 3. `nnscholar2-3-paper-architecture`: article type, storyline, claim boundary, figure/table blueprint.
 4. `nnscholar1-2-literature-searching`: comparator journals/conferences from cited work.
 5. `nnscholar1-4-domain-expert-knowledge-base`: discipline norms and reviewer risks.
@@ -110,6 +110,8 @@ Use `references/venue-fit-router.md` to classify fit:
 - engineering;
 - interdisciplinary.
 
+For Nature-family, Cell, Science, CNS-style, flagship society, or other high-impact multidisciplinary targets, also read `../../references/high-impact-paper-guardrails.md`. Classify the paper type as `research`, `methods`, `hypothesis`, `algorithmic`, or `review`, then test whether the manuscript has a credible high-impact argument chain: field-scale need, unresolved bottleneck, proposed move, decisive evidence, broader implication, and explicit boundary.
+
 ### Step 3: Shortlist and Risk Tiers
 
 Create 3 tiers:
@@ -121,6 +123,7 @@ Create 3 tiers:
 For each venue include:
 
 - fit rationale;
+- paper-type fit and broad-interest fit when a high-impact venue is considered;
 - article type compatibility;
 - evidence/method requirements;
 - likely reviewer concerns;
@@ -157,6 +160,14 @@ Use `references/recommendation-output-template.md` for a full report. When gener
 - Economics/social science: check identification strategy, data transparency, robustness, policy/theory contribution, and field journal scope.
 - Humanities: check conceptual contribution, corpus/source fit, theoretical conversation, and journal tradition.
 - Engineering: check system validation, workload realism, reproducibility, and application relevance.
+
+## AI Research Engineering Integration
+
+For AI/ML/LLM/RAG/agent/multimodal/systems, benchmark, or evaluation papers, read `../../references/ai-research-engineering-guardrails.md`; for competitive CS-paper positioning, also read `../../references/supervisor-research-guardrails.md`.
+
+Match the venue to the contribution type before ranking: method, benchmark/evaluation, dataset/resource, systems/infrastructure, interpretability, safety/alignment, medical AI, agent/RAG application, or theory. Require an evidence-strength check covering baselines, ablations, evaluation harness details, seeds/variance, reproducibility and artifact status, code/data policy, limitations, ethics, and LLM-use disclosure where relevant.
+
+If venue facts may have changed, verify against official venue or journal pages before presenting them as current facts; otherwise mark them as `needs verification`.
 
 ## Output Rules
 

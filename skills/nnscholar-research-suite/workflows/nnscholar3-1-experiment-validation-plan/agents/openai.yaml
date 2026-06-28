@@ -1,6 +1,6 @@
 interface:
-  display_name: "NNScholar 3.1 Experiment and Validation Plan"
-  short_description: "Interactive experiment steps and feasibility analysis across disciplines."
-  default_prompt: "Use $nnscholar3-1-experiment-validation-plan to ask about my resources and constraints, then design the most feasible experiment or validation steps with expected and disconfirming results."
+  display_name: "NNScholar 3.1 Automated Research Execution"
+  short_description: "Execute, monitor, audit, and iterate on locked NNScholar protocols with automated research loops."
+  default_prompt: "Use $nnscholar3-1-experiment-validation-plan to run or monitor a locked protocol, manage experiment queues, audit results, convert evidence to claims, and prepare the next NNScholar handoff."
 policy:
   allow_implicit_invocation: true

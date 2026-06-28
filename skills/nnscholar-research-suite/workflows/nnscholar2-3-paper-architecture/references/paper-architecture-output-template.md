@@ -43,13 +43,13 @@ Delete empty placeholder rows in the final output. Mark missing information as `
 
 ## 5. Section Architecture
 
-| Section | Purpose | Key content | Evidence dependency | Claim boundary |
+| Section | Purpose | What to write | Evidence / experiment dependency | Claim boundary |
 |---|---|---|---|---|
 | Introduction |  |  |  |  |
-| Methods / Approach |  |  |  |  |
-| Results / Findings |  |  |  |  |
-| Discussion / Argument |  |  |  |  |
-| Conclusion |  |  |  |  |
+| Methods / Approach |  |  | 2.2 experimental protocol / flowchart |  |
+| Results / Findings |  |  | 2.2 experiment outputs |  |
+| Discussion / Argument |  |  | completed results + literature |  |
+| Conclusion |  |  | supported results only |  |
 
 ## 6. Introduction Logic
 
@@ -70,21 +70,27 @@ Delete empty placeholder rows in the final output. Mark missing information as `
 
 ## 8. Results / Findings Architecture
 
-| Result block | Question answered | Evidence needed | Display format | Claim supported |
-|---|---|---|---|---|
-| R1 |  |  |  |  |
-| R2 |  |  |  |  |
-| R3 |  |  |  |  |
+| Result block | Experiment / analysis source | Question answered | Evidence needed | Planned display | Claim supported |
+|---|---|---|---|---|---|
+| R1 |  |  |  |  |  |
+| R2 |  |  |  |  |  |
+| R3 |  |  |  |  |  |
 
 ## 9. Figure and Table Blueprint
 
-| Item | Working title | Section | Evidence displayed | Claim supported | Risk if missing |
-|---|---|---|---|---|---|
-| Figure 1 |  |  |  |  |  |
-| Table 1 |  |  |  |  |  |
-| Figure 2 |  |  |  |  |  |
+| Item | Working title | Section | Generated from which experiment/result | Evidence displayed | Claim supported | Risk if missing |
+|---|---|---|---|---|---|---|
+| Figure 1 |  |  | 2.2 experimental route / workflow or primary result |  |  |  |
+| Table 1 |  |  | dataset/cohort/baseline characteristics or benchmark setup |  |  |  |
+| Figure 2 |  |  | primary experiment |  |  |  |
 
-## 10. Discussion / Argument Architecture
+## 10. Experiment-to-Manuscript Mapping
+
+| 2.2 experiment step | Expected or observed output | Manuscript section | Figure/table candidate | Writing note |
+|---|---|---|---|---|
+|  |  |  |  |  |
+
+## 11. Discussion / Argument Architecture
 
 1. Principal finding or thesis:
 2. Comparison with literature / prior work:
@@ -94,7 +100,7 @@ Delete empty placeholder rows in the final output. Mark missing information as `
 6. Limitations:
 7. Conclusion boundary:
 
-## 11. Writing Risks
+## 12. Writing Risks
 
 | Risk | Why it matters | Required fix |
 |---|---|---|
@@ -103,11 +109,11 @@ Delete empty placeholder rows in the final output. Mark missing information as `
 | Unsupported claim |  |  |
 | Discipline structure mismatch |  |  |
 
-## 12. Handoff
+## 13. Handoff
 
 - Ready for writing: yes / no
-- Send to `nnscholar2-4-flowchart-design` for:
-- Return to `nnscholar2-2-ars-plan` if:
+- Send to `nnscholar4-3-paper-writing` when:
+- Return to `nnscholar2-2-ars-plan` if the experimental protocol, flowchart, expected results, or Methods/Results authority is unstable.
 - Next 3 actions:
   1. 
   2. 

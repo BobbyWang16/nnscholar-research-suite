@@ -1,4 +1,4 @@
----
+﻿---
 name: nnscholar1-3-hypothesis-generation
 description: Use when NNScholar needs interactive research hypothesis generation, hypothesis refinement, mechanistic hypothesis critique, falsifiability checks, or pre-study-design hypothesis locking for article-type empirical papers.
 ---
@@ -9,7 +9,7 @@ This skill turns a selected research question and local literature base into tes
 
 Inspired by Academic Research Skills' human-in-the-loop and Socratic workflow principles: the researcher stays in control; the agent challenges, structures, verifies, and records decisions. Do not let the agent silently invent the hypothesis and move on.
 
-Version: `0.2.0`. Stage: `literature / hypothesis generation`. Legacy workflow alias: `$nnscholar1-3-hypothesis-generation`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `literature / hypothesis generation`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -17,7 +17,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar1-3-hypothesis-generation` / `/nnscholar1-3-hypothesis-generation`.
+- Keep the workflow id and folder name as `nnscholar1-3-hypothesis-generation` / `/nnscholar1-3-hypothesis-generation`.
 - Keep the title format as `NNScholar 1.3 Hypothesis Generation`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 
@@ -332,6 +332,22 @@ Use this only after the hypothesis is stable enough. Do not generate a full manu
 | Economics/finance | Identification strategy, treatment/exposure, outcome, mechanism, robustness |
 | Engineering | System, control/input, performance metric, constraints, failure mode |
 | Humanities/history | Research proposition or thesis, source base, interpretation, counter-argument |
+
+## Supervisor Guardrail Integration
+
+For AI/data-science, database, systems, ML, NLP, benchmark/evaluation, or
+technical CS hypotheses, read
+`../../references/supervisor-research-guardrails.md` and apply the Idea
+Evaluation Gate before locking the hypothesis. Include fatal flaws, resource
+fit, strongest contribution dimension, and falsifiability risks in the quality
+gate. For benchmark hypotheses, also apply the Benchmark Paper Gate and avoid
+forcing a method-paper hypothesis onto a benchmark/evaluation contribution.
+
+If the hypothesis will be tested through model training, fine-tuning,
+inference/RAG/agent evaluation, or code-model benchmarking, also read
+`../../references/ai-research-engineering-guardrails.md`. Add protocol fields
+for baseline, proxy metric, benchmark settings, config/seed/hardware, and
+confirmatory-vs-exploratory labeling.
 
 ## Hypothesis Types
 

@@ -1,4 +1,4 @@
----
+﻿---
 name: nnscholar5-3-submission-portal-workflow
 description: Use when NNScholar needs to prepare, guide, checklist, or assist a journal/conference official submission portal workflow, including ScholarOne, Editorial Manager, Elsevier/Springer/Wiley/Taylor & Francis portals, OpenReview, CMT, EasyChair, HotCRP, publisher upload systems, manuscript metadata forms, suggested reviewers, file uploads, declarations, and final human confirmation. Produces portal step plans, field-answer drafts, upload manifest, compliance checks, and safety-gated submission instructions across disciplines.
 ---
@@ -7,7 +7,7 @@ description: Use when NNScholar needs to prepare, guide, checklist, or assist a 
 
 This skill helps the user complete an official submission portal workflow. It is a guided assistant, not an autonomous submitter.
 
-Version: `0.2.0`. Stage: `submission / portal workflow`. Legacy workflow alias: `$nnscholar5-3-submission-portal-workflow`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `submission / portal workflow`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -15,7 +15,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar5-3-submission-portal-workflow` / `/nnscholar5-3-submission-portal-workflow`.
+- Keep the workflow id and folder name as `nnscholar5-3-submission-portal-workflow` / `/nnscholar5-3-submission-portal-workflow`.
 - Keep the title format as `NNScholar 5.3 Submission Portal Workflow`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 
@@ -73,7 +73,7 @@ Do not use this skill for:
 2. `nnscholar5-4-cover-letter`: cover letter and declarations.
 3. Target portal instructions or screenshots.
 4. User-provided account/session state and files.
-5. Manuscript metadata from 4.5/4.6.
+5. Manuscript metadata from `nnscholar4-3-paper-writing`.
 
 ## Workflow
 

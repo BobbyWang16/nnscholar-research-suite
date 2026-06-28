@@ -21,14 +21,10 @@ EXPECTED_WORKFLOWS = [
     "nnscholar2-1-research-planning",
     "nnscholar2-2-ars-plan",
     "nnscholar2-3-paper-architecture",
-    "nnscholar2-4-flowchart-design",
     "nnscholar3-1-experiment-validation-plan",
-    "nnscholar4-1-data-figure",
-    "nnscholar4-2-image-schematic",
-    "nnscholar4-3-figure-assembly",
-    "nnscholar4-4-table-formatting",
-    "nnscholar4-5-manuscript-drafting",
-    "nnscholar4-6-manuscript-polishing",
+    "nnscholar4-1-paper-figure",
+    "nnscholar4-2-paper-table",
+    "nnscholar4-3-paper-writing",
     "nnscholar5-1-journal-conference-recommendation",
     "nnscholar5-2-submission-finalization",
     "nnscholar5-3-submission-portal-workflow",
@@ -65,7 +61,15 @@ def markdown_section(text: str, heading: str) -> str | None:
     return match.group("body")
 
 
-LOCAL_REF_RE = re.compile(r"`?((?:references|scripts)/[A-Za-z0-9._/-]+\.(?:md|py|json|yaml|yml|txt|csv))`?")
+def markdown_sections_with_prefix(text: str, heading_prefix: str) -> str:
+    pattern = rf"^### {re.escape(heading_prefix)}(?:[^\n]*)\n(?P<body>.*?)(?=^### |\Z)"
+    return "\n".join(
+        match.group("body")
+        for match in re.finditer(pattern, text, flags=re.MULTILINE | re.DOTALL)
+    )
+
+
+LOCAL_REF_RE = re.compile(r"`?((?:(?:\.\./)+)?(?:references|scripts)/[A-Za-z0-9._/-]+\.(?:md|py|json|yaml|yml|txt|csv))`?")
 
 
 class SuiteStructureTest(unittest.TestCase):
@@ -123,6 +127,13 @@ class SuiteStructureTest(unittest.TestCase):
     def test_no_stale_workflow_names(self) -> None:
         stale_names = [
             "nnscholar2-2-research-scheme",
+            "nnscholar2-4-flowchart-design",
+            "nnscholar4-1-data-figure",
+            "nnscholar4-2-image-schematic",
+            "nnscholar4-3-figure-assembly",
+            "nnscholar4-4-table-formatting",
+            "nnscholar4-5-manuscript-drafting",
+            "nnscholar4-6-manuscript-polishing",
         ]
         all_text = "\n".join(read_text(path) for path in SUITE_ROOT.rglob("*") if path.is_file() and path.suffix in {".md", ".json", ".yaml", ".py"})
         for stale_name in stale_names:
@@ -134,13 +145,12 @@ class SuiteStructureTest(unittest.TestCase):
         self.assertIn("assets/zotero-figure-examples/manifest.json", atlas_text)
 
         for workflow_id in EXPECTED_WORKFLOWS:
-            section = markdown_section(atlas_text, workflow_id)
-            self.assertIsNotNone(section, f"missing atlas section for {workflow_id}")
-            assert section is not None
+            section = markdown_sections_with_prefix(atlas_text, workflow_id)
+            self.assertTrue(section.strip(), f"missing atlas section for {workflow_id}")
 
-            if workflow_id == "nnscholar4-1-data-figure":
+            if workflow_id == "nnscholar4-1-paper-figure":
                 count = len(re.findall(r"^- Figure example \d+:", section, flags=re.MULTILINE))
-                self.assertGreaterEqual(count, 10, "data-figure atlas needs at least 10 figure examples")
+                self.assertGreaterEqual(count, 10, "paper-figure atlas needs at least 10 figure examples")
             else:
                 count = len(re.findall(r"^- Example \d+:", section, flags=re.MULTILINE))
                 self.assertGreaterEqual(count, 5, f"{workflow_id} atlas needs at least 5 examples")

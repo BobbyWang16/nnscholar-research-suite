@@ -1,4 +1,4 @@
----
+﻿---
 name: nnscholar5-5-reviewer-response
 description: Use when NNScholar needs to analyze, classify, draft, revise, polish, or audit responses to reviewers, editor decision letters, major revision, minor revision, reject-and-resubmit, conference rebuttal, OpenReview rebuttal, revision summary, point-by-point response, changed manuscript checklist, or reviewer-aware manuscript revisions across disciplines. Produces comment taxonomy, response strategy, manuscript change plan, point-by-point replies, tone audit, unresolved-risk notes, and revision package.
 ---
@@ -7,7 +7,7 @@ description: Use when NNScholar needs to analyze, classify, draft, revise, polis
 
 This skill helps respond to reviewer and editor comments with a respectful, evidence-based, traceable revision strategy.
 
-Version: `0.2.0`. Stage: `submission / reviewer response`. Legacy workflow alias: `$nnscholar5-5-reviewer-response`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `submission / reviewer response`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -15,7 +15,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar5-5-reviewer-response` / `/nnscholar5-5-reviewer-response`.
+- Keep the workflow id and folder name as `nnscholar5-5-reviewer-response` / `/nnscholar5-5-reviewer-response`.
 - Keep the title format as `NNScholar 5.5 Reviewer Response`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 
@@ -62,8 +62,7 @@ Do not use this skill for:
 
 1. Reviewer/editor comments and decision letter.
 2. Current manuscript and revised manuscript if available.
-3. `nnscholar4-6-manuscript-polishing`: polished draft and risky claims.
-4. `nnscholar4-5-manuscript-drafting`: claim map and missing evidence checklist.
+3. `nnscholar4-3-paper-writing`: revised or polished draft, risky claims, claim map, and missing evidence checklist.
 5. Figures/tables/statistics added in response to review.
 6. User strategy: accept, rebut, partially accept, add analysis, defer to limitation, or appeal.
 
@@ -103,6 +102,8 @@ Use `references/reviewer-comment-taxonomy.md` to classify each comment:
 - impossible/unreasonable request;
 - editor-only issue.
 
+For Nature-family, Cell, Science, CNS-style, flagship society, or other high-impact revisions, also read `../../references/high-impact-paper-guardrails.md`. Add severity labels `minor`, `major`, `blocking`, or `unclear`, and action labels such as `ACCEPT_TEXT`, `ACCEPT_ANALYSIS`, `ACCEPT_EXPERIMENT`, `ACCEPT_FIGURE`, `CLARIFY_EXISTING`, `ADD_CITATION`, `SOFTEN_CLAIM`, `PARTIAL`, `DISAGREE`, `OUT_OF_SCOPE`, `AUTHOR_INPUT_NEEDED`, or `BLOCKING`.
+
 ### Step 3: Response Strategy
 
 For each comment:
@@ -111,11 +112,14 @@ For each comment:
 Reviewer/comment ID:
 Issue:
 Strategy:
+Severity:
+Action label:
 Manuscript change:
 Evidence/source:
 Response tone:
 Risk:
 Author action needed:
+Readiness:
 ```
 
 ### Step 4: Point-by-Point Response
@@ -143,6 +147,8 @@ Always audit:
 - whether limitations are appropriately added;
 - whether editor-level issues are addressed.
 
+For high-impact revisions, the response is not ready if claimed changes lack manuscript locations, new analyses/experiments are described without completed artifacts, invented citations or results appear, or author inputs needed for a reviewer request are hidden instead of marked visibly.
+
 ## Discipline Guardrails
 
 - Clinical medicine: handle requests for subgroup, sensitivity, validation, ethics, missing data, and clinical relevance conservatively.
@@ -152,6 +158,14 @@ Always audit:
 - Education/psychology: handle sample, measurement, reliability, ethics, intervention fidelity, and effect size concerns.
 - Economics/social science: handle identification, endogeneity, fixed effects, robustness, standard errors, and external validity.
 - Humanities: handle interpretation, source coverage, theoretical framing, and counterargument concerns.
+
+## AI Research Engineering Integration
+
+For AI/data-science, ML, LLM, RAG, agent, benchmark, or systems reviewer comments, read `../../references/ai-research-engineering-guardrails.md`; for venue-level critique, also read `../../references/supervisor-research-guardrails.md`.
+
+Map each reviewer request to claim/evidence/protocol artifacts: baselines, ablations, evaluation harness settings, seeds, variance, data leakage checks, model/data cards, code release, artifact checklist, citation verification, limitations, and ethics or disclosure notes. Do not promise new experiments unless they are completed or explicitly scheduled with a credible timeline.
+
+When new runs or analyses are added, keep protocol, result, and interpretation separate; update the claim-evidence map before drafting the response. Use the Rigor Review Gate from the AI research engineering guardrails for a final response audit.
 
 ## Output Rules
 

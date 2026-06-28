@@ -1,6 +1,0 @@
-interface:
-  display_name: "NNScholar 4.5 Manuscript Drafting"
-  short_description: "Generate manuscript briefs, English first drafts, and audits."
-  default_prompt: "Use $nnscholar4-5-manuscript-drafting to read prior NNScholar outputs, create a manuscript brief for confirmation, then draft the paper in English section by section."
-policy:
-  allow_implicit_invocation: true

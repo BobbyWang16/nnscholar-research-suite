@@ -3,15 +3,17 @@ name: nnscholar-research-suite
 description: >
   NNScholar research workflow suite for question mining, literature searching,
   hypothesis generation, domain expert knowledge bases, research planning, ARS
-  protocol design, paper architecture, flowchart design, experiment validation,
-  data figures, image schematics, figure assembly, table formatting, manuscript
-  drafting, manuscript polishing, venue recommendation, submission finalization,
-  submission portal workflows, cover letters, and reviewer responses. Use this
-  suite for NNScholar academic research workflows, legacy aliases such as
-  /nnscholar1-1-question-mining through /nnscholar5-5-reviewer-response, and
-  specialist-aware orchestration for clinical/biomedical research, radiology or
-  medical imaging AI, evidence-first literature work, high-impact manuscript
-  writing, figures, citations, submission strategy, and research deliverables.
+  protocol design, experiment flowchart design, validation feasibility, paper architecture,
+  paper figure production, paper table production, paper writing and polishing,
+  venue recommendation, submission finalization,
+  submission portal workflows, cover letters, reviewer responses, automated
+  research execution, and AI research engineering. Use this suite for current
+  NNScholar academic research workflows and specialist-aware orchestration for
+  clinical/biomedical research, radiology or medical imaging AI, evidence-first
+  literature work, AI/ML/LLM/RAG/agent/systems experiments, benchmark and
+  evaluation planning, overnight/autonomous experiment loops, repo-to-paper conversion, ARA-style provenance and rigor
+  review, high-impact manuscript writing, figures, citations, submission strategy,
+  and research deliverables.
 ---
 
 # NNScholar Research Suite
@@ -28,9 +30,23 @@ referenced templates, scripts, agents, or reference files needed for the current
 phase.
 
 If the request spans multiple workflow stages, start with the earliest stage
-that would unblock the rest of the work. Use `nnscholar2-2-ars-plan` only after
-the research question or hypothesis is sufficiently clear, unless the user
-explicitly asks for a provisional protocol.
+that would unblock the rest of the work. Stage 2 is intentionally compact:
+`nnscholar2-1-research-planning` defines the project plan and Gantt chart;
+`nnscholar2-2-ars-plan` defines the experimental/method protocol, executable
+experiment flowchart, step-by-step procedure, expected results, validation
+route, feasibility audit, pilot plan, go/no-go criteria, and fallback plan; and
+`nnscholar2-3-paper-architecture` defines manuscript structure and figure/table
+planning. Stage 4 is intentionally compact: `nnscholar4-1-paper-figure`
+produces data figures, schematics, graphical abstracts, and multi-panel figure
+assemblies; `nnscholar4-2-paper-table` produces manuscript tables; and
+`nnscholar4-3-paper-writing` drafts, revises, polishes, and audits manuscript
+prose. Experimental flowcharts are a native part of
+`nnscholar2-2-ars-plan`.
+`nnscholar3-1-experiment-validation-plan` is the automated research execution
+and validation loop after 2.2 has produced a protocol.
+
+Use `nnscholar2-2-ars-plan` only after the research question or hypothesis is
+sufficiently clear, unless the user explicitly asks for a provisional protocol.
 
 ## Companion Skill Bridge
 
@@ -50,11 +66,18 @@ recommendations when the request involves:
   searching, or claim-to-source binding;
 - Nature/CNS/high-impact manuscript writing, figures, citations, reviewer
   response, or submission strategy;
+- AI/data-science, database, systems, ML, NLP, or benchmark/evaluation papers
+  where idea viability, technical paper logic, benchmark design, figure design,
+  AI-assisted research workflow, or pre-submission reviewer-style checks matter;
 - Word, PDF, spreadsheet, slide deck, or other file-format deliverables.
 
 Use the strictest compatible guardrail. A companion skill can refine evidence,
 domain norms, reporting standards, or file handling, but it must not override a
 locked NNScholar protocol without reopening the relevant upstream workflow.
+
+For Nature/CNS or high-impact manuscript work, use NNScholar's built-in
+`references/high-impact-paper-guardrails.md`; do not rely on an external
+Nature-style skill unless the user explicitly asks for that separate tool.
 
 ## Zotero Example Atlas
 
@@ -71,9 +94,49 @@ reference crops under `assets/zotero-figure-examples/`. Inspect only the
 matching assets needed for the current figure task, then generate original
 panels and captions with source/license attribution preserved in the handoff.
 
+## Built-In Supervisor Guardrails
+
+For AI/data-science, database, systems, ML, NLP, benchmark/evaluation, or
+technical CS papers, NNScholar has built-in advisor-style guardrails distilled
+from Supervisor-Skills. After selecting the workflow, read
+`references/supervisor-research-guardrails.md` when the request involves idea
+viability, technical paper logic, benchmark paper structure, Introduction
+logic, core figure design, AI-assisted research workflow, or pre-submission
+review.
+
+These guardrails are internal to NNScholar. Use them before companion skills:
+the active NNScholar workflow remains the source of stage order, protocol lock,
+artifact naming, and handoff requirements.
+
+## Built-In AI Research Engineering Guardrails
+
+For AI/data-science, ML, LLM, RAG, agent, multimodal, systems,
+benchmark/evaluation, model-training, or autonomous experiment projects, also
+read `references/ai-research-engineering-guardrails.md` when the request
+involves iterative experiments, model training/fine-tuning, benchmark
+evaluation, repo-to-paper drafting, citation/venue compliance, long-running
+research state, or rigorous release/readiness review.
+
+Use this file to add experiment engineering discipline, not to override
+NNScholar's research-stage routing.
+
+## Built-In High-Impact Paper Guardrails
+
+For Nature/CNS, Nature-family, Cell/Science-family, or other high-impact
+multidisciplinary outputs, read
+`references/high-impact-paper-guardrails.md` after selecting the workflow when
+the task involves paper architecture, figure/table production, manuscript
+drafting or polishing, venue strategy, finalization, cover letters, or reviewer
+response.
+
+Apply its paper-type taxonomy, terminology ledger, high-impact argument chain,
+figure contract, caption/table legend discipline, FAIR data/code availability,
+citation/source discipline, pre-submission reviewer audit, and reviewer-response
+action taxonomy as native NNScholar checks.
+
 ## Workflow Router
 
-Choose the workflow by explicit payload, legacy alias, or intent.
+Choose the workflow by explicit payload, current workflow id, or intent.
 
 ### Explicit Payload
 
@@ -91,11 +154,10 @@ User request:
 When `Workflow:` is present, route to the matching workflow unless the user
 explicitly says the selected workflow is wrong.
 
-### Legacy Alias Router
+### Workflow ID Router
 
-If the user message begins with one of these aliases, strip the alias token and
-route to the matching workflow. These aliases are compatibility shims for the
-older multi-skill layout and for desktop workflow buttons.
+If the user message begins with one of these current workflow ids, strip the id
+token and route to the matching workflow.
 
 | Alias | Read first |
 |---|---|
@@ -106,14 +168,10 @@ older multi-skill layout and for desktop workflow buttons.
 | `/nnscholar2-1-research-planning`, `nnscholar2-1-research-planning` | `workflows/nnscholar2-1-research-planning/WORKFLOW.md` |
 | `/nnscholar2-2-ars-plan`, `nnscholar2-2-ars-plan` | `workflows/nnscholar2-2-ars-plan/WORKFLOW.md` |
 | `/nnscholar2-3-paper-architecture`, `nnscholar2-3-paper-architecture` | `workflows/nnscholar2-3-paper-architecture/WORKFLOW.md` |
-| `/nnscholar2-4-flowchart-design`, `nnscholar2-4-flowchart-design` | `workflows/nnscholar2-4-flowchart-design/WORKFLOW.md` |
 | `/nnscholar3-1-experiment-validation-plan`, `nnscholar3-1-experiment-validation-plan` | `workflows/nnscholar3-1-experiment-validation-plan/WORKFLOW.md` |
-| `/nnscholar4-1-data-figure`, `nnscholar4-1-data-figure` | `workflows/nnscholar4-1-data-figure/WORKFLOW.md` |
-| `/nnscholar4-2-image-schematic`, `nnscholar4-2-image-schematic` | `workflows/nnscholar4-2-image-schematic/WORKFLOW.md` |
-| `/nnscholar4-3-figure-assembly`, `nnscholar4-3-figure-assembly` | `workflows/nnscholar4-3-figure-assembly/WORKFLOW.md` |
-| `/nnscholar4-4-table-formatting`, `nnscholar4-4-table-formatting` | `workflows/nnscholar4-4-table-formatting/WORKFLOW.md` |
-| `/nnscholar4-5-manuscript-drafting`, `nnscholar4-5-manuscript-drafting` | `workflows/nnscholar4-5-manuscript-drafting/WORKFLOW.md` |
-| `/nnscholar4-6-manuscript-polishing`, `nnscholar4-6-manuscript-polishing` | `workflows/nnscholar4-6-manuscript-polishing/WORKFLOW.md` |
+| `/nnscholar4-1-paper-figure`, `nnscholar4-1-paper-figure` | `workflows/nnscholar4-1-paper-figure/WORKFLOW.md` |
+| `/nnscholar4-2-paper-table`, `nnscholar4-2-paper-table` | `workflows/nnscholar4-2-paper-table/WORKFLOW.md` |
+| `/nnscholar4-3-paper-writing`, `nnscholar4-3-paper-writing` | `workflows/nnscholar4-3-paper-writing/WORKFLOW.md` |
 | `/nnscholar5-1-journal-conference-recommendation`, `nnscholar5-1-journal-conference-recommendation` | `workflows/nnscholar5-1-journal-conference-recommendation/WORKFLOW.md` |
 | `/nnscholar5-2-submission-finalization`, `nnscholar5-2-submission-finalization` | `workflows/nnscholar5-2-submission-finalization/WORKFLOW.md` |
 | `/nnscholar5-3-submission-portal-workflow`, `nnscholar5-3-submission-portal-workflow` | `workflows/nnscholar5-3-submission-portal-workflow/WORKFLOW.md` |
@@ -130,22 +188,22 @@ Use this route table when there is no explicit workflow:
 | Literature search, source screening, evidence matrix, citation verification | `workflows/nnscholar1-2-literature-searching/WORKFLOW.md` |
 | Hypothesis, falsifiability, testable prediction, competing explanations | `workflows/nnscholar1-3-hypothesis-generation/WORKFLOW.md` |
 | Reusable domain expert knowledge base from prior outputs or files | `workflows/nnscholar1-4-domain-expert-knowledge-base/WORKFLOW.md` |
-| Executable research plan, milestones, timeline, work packages, risks | `workflows/nnscholar2-1-research-planning/WORKFLOW.md` |
-| Aim-Route-Specification plan, protocol lock, study/method/statistical route | `workflows/nnscholar2-2-ars-plan/WORKFLOW.md` |
-| Paper architecture, manuscript structure, result storyline, figure/table blueprint | `workflows/nnscholar2-3-paper-architecture/WORKFLOW.md` |
-| Flowchart, technical route diagram, Mermaid, PRISMA-style flow | `workflows/nnscholar2-4-flowchart-design/WORKFLOW.md` |
-| Experiment or validation steps, resources, feasibility, go/no-go criteria | `workflows/nnscholar3-1-experiment-validation-plan/WORKFLOW.md` |
-| Structured data plot, chart selection, publication figure, plotting code | `workflows/nnscholar4-1-data-figure/WORKFLOW.md` |
-| Scientific schematic, graphical abstract, mechanism diagram, image prompt | `workflows/nnscholar4-2-image-schematic/WORKFLOW.md` |
-| Multi-panel figure assembly from existing panels | `workflows/nnscholar4-3-figure-assembly/WORKFLOW.md` |
-| Manuscript table formatting, Word table, table notes, abbreviations | `workflows/nnscholar4-4-table-formatting/WORKFLOW.md` |
-| First manuscript draft from upstream outputs | `workflows/nnscholar4-5-manuscript-drafting/WORKFLOW.md` |
-| Manuscript polishing, section revision, risky-claim audit, style adaptation | `workflows/nnscholar4-6-manuscript-polishing/WORKFLOW.md` |
-| Journal or conference recommendation and submission strategy | `workflows/nnscholar5-1-journal-conference-recommendation/WORKFLOW.md` |
+| Project research plan, milestones, timeline, work packages, Gantt chart, project-level risks | `workflows/nnscholar2-1-research-planning/WORKFLOW.md` |
+| AI/ML/LLM/RAG/agent/systems research project, autonomous experiment loop, research state, experiment trajectory, ARA provenance | `workflows/nnscholar2-1-research-planning/WORKFLOW.md` |
+| Experimental protocol, method route, executable experiment steps, experiment flowchart, expected results, validation route, feasibility audit, pilot plan, go/no-go criteria, fallback plan, quality gates | `workflows/nnscholar2-2-ars-plan/WORKFLOW.md` |
+| Model training, fine-tuning, benchmark, evaluation harness, baseline, ablation, seed, reproducibility, artifact protocol | `workflows/nnscholar2-2-ars-plan/WORKFLOW.md` |
+| Paper writing plan, manuscript structure, result storyline, figure/table blueprint derived from experiments | `workflows/nnscholar2-3-paper-architecture/WORKFLOW.md` |
+| Flowchart, technical route diagram, Mermaid, experimental pipeline | route to `workflows/nnscholar2-2-ars-plan/WORKFLOW.md` unless it is purely a manuscript figure/table blueprint, then use 2.3 |
+| Experiment or validation steps, resources, feasibility, pilot plan, go/no-go criteria | `workflows/nnscholar2-2-ars-plan/WORKFLOW.md` |
+| Execute or monitor a locked protocol, run experiments, manage experiment queues, resume overnight research, audit results, convert results to claims, or run bounded review-fix-review loops | `workflows/nnscholar3-1-experiment-validation-plan/WORKFLOW.md` |
+| Paper figure production: structured data plot, chart selection, scientific schematic, graphical abstract, mechanism/model/workflow diagram, image prompt, multi-panel figure assembly, caption, legend, export audit | `workflows/nnscholar4-1-paper-figure/WORKFLOW.md` |
+| Paper table production: manuscript table, Word table, Markdown/HTML/LaTeX table, statistical/regression table, benchmark table, literature comparison table, table notes, abbreviations | `workflows/nnscholar4-2-paper-table/WORKFLOW.md` |
+| Paper writing: manuscript brief, first draft, section writing, figure/table integration, codebase/logs/results to claim-evidence draft, polishing, revision, risky-claim audit, venue/style adaptation | `workflows/nnscholar4-3-paper-writing/WORKFLOW.md` |
+| Journal or conference recommendation and submission strategy, including AI/ML/NLP/systems/benchmark venues | `workflows/nnscholar5-1-journal-conference-recommendation/WORKFLOW.md` |
 | Final submission package, compliance checklist, author statements | `workflows/nnscholar5-2-submission-finalization/WORKFLOW.md` |
 | Submission portal fields, uploads, declarations, final human submit checklist | `workflows/nnscholar5-3-submission-portal-workflow/WORKFLOW.md` |
 | Cover letter, presubmission inquiry, editorial pitch | `workflows/nnscholar5-4-cover-letter/WORKFLOW.md` |
-| Reviewer response, rebuttal, revision plan, point-by-point replies | `workflows/nnscholar5-5-reviewer-response/WORKFLOW.md` |
+| Reviewer response, rebuttal, revision plan, point-by-point replies, baseline/ablation/reproducibility/artifact critique | `workflows/nnscholar5-5-reviewer-response/WORKFLOW.md` |
 
 ## Routing Discipline
 
@@ -154,8 +212,8 @@ Use this route table when there is no explicit workflow:
 - If a user provides reviewer comments, route to `nnscholar5-5-reviewer-response`
   unless they explicitly ask to polish the revised manuscript body first.
 - If a user provides structured data and asks for both a figure and manuscript
-  text, route first to `nnscholar4-1-data-figure`, then hand off to
-  `nnscholar4-5-manuscript-drafting`.
+  text, route first to `nnscholar4-1-paper-figure`, then hand off to
+  `nnscholar4-3-paper-writing`.
 - If evidence, citation, data, or venue requirements are current or external,
   verify them with source links instead of relying on memory.
 - Preserve the user's output language for author-facing planning notes. Use

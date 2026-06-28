@@ -1,4 +1,4 @@
----
+﻿---
 name: nnscholar1-1-question-mining
 description: Use when NNScholar needs evidence-grounded research question mining, research gap discovery, topic refinement, novelty-first candidate questions, or an agent handoff before full literature search.
 ---
@@ -7,7 +7,7 @@ description: Use when NNScholar needs evidence-grounded research question mining
 
 This skill turns a broad research direction into evidence-grounded, novelty-prioritized research questions. It must not invent questions directly from intuition. It first performs a rapid evidence scan, then mines hotspots, controversies, and gaps, and finally hands the strongest question to the literature-search stage.
 
-Version: `0.2.0`. Stage: `literature / question mining`. Legacy workflow alias: `$nnscholar1-1-question-mining`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `literature / question mining`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -15,7 +15,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar1-1-question-mining` / `/nnscholar1-1-question-mining`.
+- Keep the workflow id and folder name as `nnscholar1-1-question-mining` / `/nnscholar1-1-question-mining`.
 - Keep the title format as `NNScholar 1.1 Question Mining`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 
@@ -135,6 +135,22 @@ Innovation is the first ranking principle. Prefer questions that combine:
 - cross-field method transfer.
 
 Speculative questions are allowed when evidence suggests plausibility, but uncertainty and feasibility risks must be explicit.
+
+## Supervisor Guardrail Integration
+
+For AI/data-science, database, systems, ML, NLP, benchmark/evaluation, or
+technical CS topics, read
+`../../references/supervisor-research-guardrails.md` and apply the Idea
+Evaluation Gate before recommending the primary question. Add the strongest
+dimension signals and any fatal-flaw warning to the recommendation rationale.
+If the topic is explicitly a benchmark or dataset paper, also apply the
+Benchmark Paper Gate when judging whether the proposed gap is substantive.
+
+If the proposed topic requires iterative model training, autonomous experiments,
+RAG/agent evaluation, or benchmark optimization, also read
+`../../references/ai-research-engineering-guardrails.md` and include the likely
+Two-Loop Research Cycle, initial benchmark metric, and minimum evidence artifacts
+needed before downstream design.
 
 ## Required Output
 

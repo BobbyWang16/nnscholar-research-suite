@@ -78,13 +78,35 @@ Blocking tasks:
 | Phase 2 |  |  |  |  |  |
 | Phase 3 |  |  |  |  |  |
 
-## 8. Risk and Fallback Plan
+## 8. Gantt Chart
+
+Use Mermaid `gantt` when possible.
+
+```mermaid
+gantt
+  title [TOPIC] project Gantt chart
+  dateFormat  YYYY-MM-DD
+  section Planning
+  WP1 project setup      :wp1, 2026-01-01, 7d
+  section Experiment
+  WP2 protocol lock      :after wp1, 7d
+  section Writing
+  WP3 paper architecture :after wp2, 7d
+```
+
+If exact dates are unknown, use week labels in a compact table:
+
+| Work package | W1 | W2 | W3 | W4 | W5 | W6 | Milestone |
+|---|---|---|---|---|---|---|---|
+| WP1 |  |  |  |  |  |  |  |
+
+## 9. Risk and Fallback Plan
 
 | Risk | Probability | Impact | Warning signal | Mitigation | Fallback |
 |---|---|---|---|---|---|
 |  |  |  |  |  |  |
 
-## 9. Quality Gates
+## 10. Quality Gates
 
 | Gate | Pass / fail / provisional | Reason | Required action |
 |---|---|---|---|
@@ -96,19 +118,19 @@ Blocking tasks:
 | Ethics/privacy/licensing |  |  |  |
 | Deliverables concrete |  |  |  |
 
-## 10. Next 3 Actions
+## 11. Next 3 Actions
 
 1. 
 2. 
 3. 
 
-## 11. Downstream Handoff
+## 12. Downstream Handoff
 
 - If method choices remain open: hand off to `nnscholar2-2-ars-plan`.
 - If manuscript structure is the next bottleneck: hand off to `nnscholar2-3-paper-architecture`.
-- If the user needs visual workflow / technical route: hand off to `nnscholar2-4-flowchart-design`.
+- If the user needs detailed experimental workflow / technical route: hand off to `nnscholar2-2-ars-plan`.
 
-## 12. Source Notes
+## 13. Source Notes
 
 | Source | How it was used | Limitation |
 |---|---|---|

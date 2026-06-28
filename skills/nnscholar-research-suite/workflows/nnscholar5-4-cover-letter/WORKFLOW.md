@@ -1,4 +1,4 @@
----
+﻿---
 name: nnscholar5-4-cover-letter
 description: Use when NNScholar needs to draft, revise, polish, adapt, or audit a journal submission cover letter, conference submission note, editor letter, transfer letter, resubmission letter, presubmission inquiry, or publication declaration. Uses manuscript, target venue, contribution, ethics/COI/data statements, and venue fit to produce multidisciplinary cover letters with revision notes and compliance checks.
 ---
@@ -7,7 +7,7 @@ description: Use when NNScholar needs to draft, revise, polish, adapt, or audit 
 
 This skill writes and revises cover letters and editor-facing submission letters. It emphasizes fit, contribution, declarations, and professional tone.
 
-Version: `0.2.0`. Stage: `submission / cover letter`. Legacy workflow alias: `$nnscholar5-4-cover-letter`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `submission / cover letter`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -15,7 +15,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar5-4-cover-letter` / `/nnscholar5-4-cover-letter`.
+- Keep the workflow id and folder name as `nnscholar5-4-cover-letter` / `/nnscholar5-4-cover-letter`.
 - Keep the title format as `NNScholar 5.4 Cover Letter`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 
@@ -61,8 +61,7 @@ Do not use this skill for:
 
 1. `nnscholar5-1-journal-conference-recommendation`: venue fit rationale.
 2. `nnscholar5-2-submission-finalization`: final title, abstract, statements, article type.
-3. `nnscholar4-6-manuscript-polishing`: final polished manuscript.
-4. `nnscholar4-5-manuscript-drafting`: core story and claim map.
+3. `nnscholar4-3-paper-writing`: final polished manuscript, core story, and claim map.
 5. User-provided target editor, prior inquiry, transfer history, declaration requirements.
 
 ## Workflow
@@ -98,6 +97,7 @@ Manuscript title:
 Article type:
 Core contribution:
 Why this venue:
+High-impact pitch:
 Declarations:
 Corresponding author:
 Do-not-say items:
@@ -112,6 +112,8 @@ Use `references/cover-letter-template.md`. Always provide:
 - editorial pitch bullets;
 - missing facts/author queries;
 - compliance audit.
+
+For high-impact targets, read `../../references/high-impact-paper-guardrails.md` and make the pitch concrete: what was found, what is new, why it matters beyond the immediate specialty, what evidence supports it, and where the evidence boundary sits. Avoid generic broad-interest language and do not introduce novelty, data, or implications that are not present in the manuscript.
 
 ## Discipline Guardrails
 

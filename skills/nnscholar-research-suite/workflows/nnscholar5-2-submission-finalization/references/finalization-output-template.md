@@ -16,7 +16,12 @@
 |---|---|---|---|
 | Abstract |  |  |  |
 | Figures |  |  |  |
+| Tables |  |  |  |
 | Statements |  |  |  |
+| Data/code/source availability |  |  |  |
+| Source-data files |  |  |  |
+| Terminology ledger |  |  |  |
+| High-impact reviewer-risk gate |  |  |  |
 
 ## 3. Required Edits
 
@@ -28,7 +33,16 @@
 |---|---|---|
 |  |  |  |
 
-## 5. Author Queries
+## 5. Data, Code, and FAIR Availability
+
+- Data availability statement:
+- Code availability statement:
+- Repository / accession / DOI:
+- License and README/metadata:
+- Restricted-data access route:
+- Conflicts between statement and files:
+
+## 6. Author Queries
 
 - 
 ```

@@ -1,4 +1,4 @@
----
+﻿---
 name: nnscholar1-2-literature-searching
 description: Use when NNScholar needs interactive literature searching, paper retrieval, source selection by discipline, citation verification, literature summaries, evidence tables, or review-style outputs after a topic or research question is chosen.
 ---
@@ -7,7 +7,7 @@ description: Use when NNScholar needs interactive literature searching, paper re
 
 This skill performs interactive literature retrieval after a topic or research question is chosen. It selects search sources by discipline, retrieves and screens papers, verifies citations, condenses each paper into useful fields, and writes either a literature-review report or a research-oriented literature summary with study ideas.
 
-Version: `0.2.0`. Stage: `literature / literature searching`. Legacy workflow alias: `$nnscholar1-2-literature-searching`, routed through `$nnscholar-research-suite`.
+Version: `0.2.0`. Stage: `literature / literature searching`. Routed through `$nnscholar-research-suite`.
 
 ## NNScholar Unified Operating Standard
 
@@ -15,7 +15,7 @@ This skill follows the shared NNScholar contract. If older local wording conflic
 
 ### Naming and Invocation
 
-- Keep the workflow id, folder name, and legacy alias as `nnscholar1-2-literature-searching` / `/nnscholar1-2-literature-searching`.
+- Keep the workflow id and folder name as `nnscholar1-2-literature-searching` / `/nnscholar1-2-literature-searching`.
 - Keep the title format as `NNScholar 1.2 Literature Searching`.
 - Name generated folders and files with English ASCII kebab-case slugs, preferably `phase-step-yyyy-mm-dd-topic`, regardless of the report language.
 

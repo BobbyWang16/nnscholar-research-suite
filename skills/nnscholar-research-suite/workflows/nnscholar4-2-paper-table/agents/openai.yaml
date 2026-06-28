@@ -1,0 +1,6 @@
+interface:
+  display_name: "NNScholar 4.2 Paper Table Production"
+  short_description: "Create manuscript-ready scientific tables, notes, exports, and table audits."
+  default_prompt: "Use $nnscholar4-2-paper-table to format, rewrite, export, or audit manuscript tables."
+policy:
+  allow_implicit_invocation: true
